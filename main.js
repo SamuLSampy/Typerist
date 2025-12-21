@@ -42,6 +42,7 @@ button.addEventListener("click", ()=>{
     reiniciar()
 })
 
+// Iniciar jogo
 function iniciarJogo(){
     wordSystem.sortearProximaPalavra()
     lifebar.criarVida(game)
@@ -50,6 +51,7 @@ function iniciarJogo(){
     startBtn.classList.add("hidden")
 }
 
+// Reseta todas todos os elementos e partida
 function reiniciar(){
     lifebar.resetVida();
     points.resetPontuacao();

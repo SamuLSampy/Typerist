@@ -2,6 +2,7 @@ let loop = true
 let ultimoTime = 0;
 let errou = false
 
+// Loop do jogo
 function atualizarTime({lifebar, points, gameOver, rodapePontos, atualTime}) {
     if (!loop) return;
 
@@ -33,13 +34,14 @@ function atualizarTime({lifebar, points, gameOver, rodapePontos, atualTime}) {
     requestAnimationFrame(time => atualizarTime({lifebar, points, gameOver, rodapePontos, atualTime: time }));
 }
 
-function setLoop(bool){
-    loop = bool
-}
-
 function resetLoop(){
     loop = false;
     ultimoTime = 0;
+}
+
+// Gets & Sets
+function setLoop(bool){
+    loop = bool
 }
 
 export default {

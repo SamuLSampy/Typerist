@@ -59,14 +59,11 @@ function confirmarChar(){
     })
 }
 
-function getGamesPalavra(){
-    return gamesPalavra
-}
-
 function sortear(max){
     return Math.floor(Math.random() * max)
 }
 
+// Verifica se a palavra está correta ou errada
 function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
     if(inputTexto.value === getGamesPalavra()[getGamesPalavra().length-1]){
         new Fly(10,"+");
@@ -100,6 +97,11 @@ function resetWordSystem(){
     })
 
     gamesPalavra = []
+}
+
+// Gets & Sets
+function getGamesPalavra(){
+    return gamesPalavra
 }
 
 export default {

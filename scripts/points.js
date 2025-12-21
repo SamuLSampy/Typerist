@@ -6,11 +6,13 @@ let comboMaximo = 0;
 
 let elCombo, elPoint;
 
+// Funcao para inicializar pontos
 function initPoints(importElCombo, importElPoint){
     elCombo = importElCombo;
     elPoint = importElPoint;
 }
 
+// Adiciona ou remove pontos
 function adicionarPontos(newPontos) {
     incrementarCombo();
 
@@ -23,12 +25,14 @@ function adicionarPontos(newPontos) {
     }
 }
 
+// Aumenta o valor do combo
 function incrementarCombo(el){
     pulseCombo();
     combo++
     return
 }
 
+// Reseta o combo, subtraindo gradualmente
 function zerarCombo(){
     pulseCombo()
     if (combo > comboMaximo) comboMaximo = combo
@@ -40,6 +44,7 @@ function zerarCombo(){
     return
 }
 
+// Efeito visual de pulsar no combo
 function pulseCombo(){
     elCombo.classList.remove("pulse");
 
@@ -50,6 +55,16 @@ function pulseCombo(){
     }, { once: true });
 }
 
+// Funcao que reseta para uma proxima partida
+function resetPontuacao(){
+    pontos = 0;
+    combo = 0;
+    comboVisual = 0;
+    errou = false;
+    comboMaximo = 0;
+}
+
+// Gets & Sets
 function getPontos(){
     return pontos
 }
@@ -78,14 +93,6 @@ function setErrou(bool){
 
 function getComboMaximo(){
     return comboMaximo
-}
-
-function resetPontuacao(){
-    pontos = 0;
-    combo = 0;
-    comboVisual = 0;
-    errou = false;
-    comboMaximo = 0;
 }
 
 export default {

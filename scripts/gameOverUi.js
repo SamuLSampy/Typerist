@@ -1,5 +1,6 @@
 let input, lifebar, elPlacar, plCombo, plPontos;
 
+// Funcao inicial para importar elementos
 function initGameOver(inputText, importVida, placar, placarCombo, placarPontos){
     try{
         input = inputText;
@@ -13,6 +14,7 @@ function initGameOver(inputText, importVida, placar, placarCombo, placarPontos){
     }
 }
 
+// Inicia tela de gameover e finaliza o jogo
 function gameOverEnable(points){
     input.disabled = true;
     lifebar.setVidaMorto()
