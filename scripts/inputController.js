@@ -1,4 +1,4 @@
-export default function initInputController({inputTexto, wordSystem, game, lifebar, newClass}){
+export default function initInputController({inputTexto, wordSystem, game, lifebar, points, newClass}){
     inputTexto.addEventListener("input", (e) => {
         // Sensor de tecla certa
         if (wordSystem.getGamesPalavra()[wordSystem.getGamesPalavra().length -1][inputTexto.value.length-1] == inputTexto.value[inputTexto.value.length-1] && inputTexto.value !== "" && e.key !== "Backspace"){
@@ -17,7 +17,7 @@ export default function initInputController({inputTexto, wordSystem, game, lifeb
     inputTexto.addEventListener("keydown", (e) => {
         if (e.code === "Space" || e.code === "Enter") {
             e.preventDefault();
-            wordSystem.enviarPalavra(inputTexto, lifebar, newClass.Drop, newClass.Fly);
+            wordSystem.enviarPalavra(inputTexto, lifebar, points, newClass.Drop, newClass.Fly);
             wordSystem.sortearProximaPalavra();
             inputTexto.value = "";
         }

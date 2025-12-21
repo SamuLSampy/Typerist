@@ -21,3 +21,7 @@ Como objetivos tenho essas metas:
 O objetivo é transformar o treino em algo divertido e viciante ao mesmo tempo em que aprimora a digitação do usuário.
 
 Atualizarei o repositório conforme vou aprendendo.
+
+### Onde acessar
+
+Você pode acessar [clicando aqui](typerist-nine.vercel.app).

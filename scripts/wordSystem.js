@@ -67,18 +67,39 @@ function sortear(max){
     return Math.floor(Math.random() * max)
 }
 
-function enviarPalavra(inputTexto, lifebar, Drop, Fly){
+function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
     if(inputTexto.value === getGamesPalavra()[getGamesPalavra().length-1]){
-        new Fly(10,"+")
+        new Fly(10,"+");
+        points.adicionarPontos(10);
         lifebar.atualizarVida(false, 10)
+        lifebar.atualizarDano();
+
+        console.log("Dano atual:", Math.abs(lifebar.getDanoVida()));
         return
     } else{
         for (let i = 0; i < inputTexto.value.length; i++) {
             new Drop(inputTexto.value[i], "relative", ".error");
             new Fly(10, "-")
             lifebar.atualizarVida(false, -5)
+            points.adicionarPontos(-10);
+            points.setComboVisual();
+            points.setErrou(true);
         }
     }
+}
+
+function resetWordSystem(){
+    // Apagar palavra anterior
+    document.querySelectorAll(".char").forEach(el => {
+        el.remove()
+    })
+
+    // Apagar input anterior
+    document.querySelectorAll(".playerChar").forEach(el => {
+        el.remove()
+    })
+
+    gamesPalavra = []
 }
 
 export default {
@@ -86,5 +107,6 @@ export default {
     getGamesPalavra,
     preencherChar,
     confirmarChar,
-    enviarPalavra
+    enviarPalavra,
+    resetWordSystem
 }

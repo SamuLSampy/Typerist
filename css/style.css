@@ -7,10 +7,11 @@ body{
     height: 100h;
     justify-content: center;
     background-color: rgb(18, 16, 29);
+        font-family: roboto, sans-serif;
+
 }
 
 .game{
-    font-family: roboto, sans-serif;
     font-weight: bolder;
     display: flex;
     flex-direction: column;
@@ -51,10 +52,6 @@ body{
     opacity: 0;
     transform: translateX(10px);
 }
-
-
-
-
 
 .caracteres{
     display: flex;
@@ -170,5 +167,162 @@ body{
     width: 100vw;
     height: 5px;
     transform: scaleX(var(--vida-atual));
-    animation: ease-out;
+    transition: transform 0.1s ease;
+}
+
+.gameRodape{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.gameRodape .left{
+    font-size: 40px;
+}
+
+.gameRodape .right{
+
+}
+
+.pulse{
+    animation: pulse 0.2s ease;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.1)
+    }
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-over-back{
+    background-color: rgb(25, 22, 41);
+    padding: 20px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.placar div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(16, 14, 27);
+    width: 170px;
+    height: 60px;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.pontos, .combo{
+    margin: 10px;
+}
+
+.placar{
+    display: flex;
+    gap: 20px;
+}
+
+.reiniciar {
+    all: unset;
+    cursor: pointer;
+
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+
+    background-color: #2ecc71; /* verde mais moderno */
+    background-image: url('../assets/restart.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.25),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        filter 0.3s ease;
+}
+
+.reiniciar:hover {
+    transform: scale(1.12) rotate(-180deg);
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.35),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
+}
+
+.reiniciar:active {
+    transform: scale(0.95) rotate(-540deg);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hidden{
+    display: none;
+}
+
+.morto{
+    width: 100vw;
+    transform: scaleX(1);
+    animation: piscar 0.5s infinite
+}
+
+@keyframes piscar {
+  0%   { background-color: white; }
+  50%  { background-color: red; }
+  100% { background-color: white; }
+}
+
+.timeout{
+    background-image: url('../assets/timeout.png');
+    opacity: 1;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    scale: 0.6;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: stampTimeout 2s forwards;
+}
+
+@keyframes stampTimeout {
+    10% {
+        scale: 0.5;
+        opacity: 1;
+    }
+    90%{
+        scale: 0.5;
+        opacity: 1;
+    }
+    100% {
+        scale:0.8;
+        opacity: 0;
+    }
 }
