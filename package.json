@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js --ignore public --ignore frontend",
-    "build": "set NODE_OPTIONS=--openssl-legacy-provider && webpack --watch --mode development"
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode development"
   },
   "keywords": [],
   "author": "",
