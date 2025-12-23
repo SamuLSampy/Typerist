@@ -24,4 +24,4 @@ Atualizarei o repositório conforme vou aprendendo.
 
 ### Onde acessar
 
-Você pode acessar [clicando aqui](https://typerist-nine.vercel.app).
+Você pode acessar [clicando aqui](https://typerist-nine-liard.vercel.app/).
