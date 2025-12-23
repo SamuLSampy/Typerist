@@ -10,7 +10,7 @@ Typerist foca principalmente em treinar habilidades de digitação do usuário d
 ### Fase atual
 
 O Projeto está em fase inicial no momento, apenas com o conceito criado.
-Como objetivos tenho essas metas:
+Tenho essas metas:
 
  - Backend com Node, express, mongoDB;
  - Placar global e local;
@@ -24,4 +24,4 @@ Atualizarei o repositório conforme vou aprendendo.
 
 ### Onde acessar
 
-Você pode acessar [clicando aqui](typerist-nine.vercel.app).
+Você pode acessar [clicando aqui](https://typerist-nine.vercel.app).

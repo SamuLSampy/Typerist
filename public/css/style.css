@@ -2,11 +2,12 @@
 
 body{
     margin: 0;
-    display: flex;
+    display: grid;
+    grid-template-rows: 1fr auto;
     width: 100w;
     height: 100h;
     justify-content: center;
-    background-color: rgb(18, 16, 29);
+    background-color: var(--primary-bg-color);
         font-family: roboto, sans-serif;
 
 }
@@ -17,7 +18,6 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     width: 100vw;
     gap: 100px;
 }
@@ -82,7 +82,7 @@ body{
 }
 
 .charVazio{
-    background-color: rgb(25, 22, 41);
+    background-color: var(--secondary-bg-color);
 
 }
 
@@ -209,7 +209,7 @@ body{
 }
 
 .game-over-back{
-    background-color: rgb(25, 22, 41);
+    background-color: var(--secondary-bg-color);
     padding: 20px 50px 50px 50px;
     display: flex;
     flex-direction: column;

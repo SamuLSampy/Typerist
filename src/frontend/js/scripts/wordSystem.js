@@ -1,12 +1,15 @@
 const caracteres = document.querySelector(".caracteres");
 const playerText = document.querySelector(".playerText");
-let gamesPalavra = []
+let gamesPalavra = [];
+let listaPalavras
 
 
 // Carregar lista de palavras
-const res = await fetch("lista.txt");
-const arquivo = await res.text();
-const listaPalavras = arquivo.split('\n').map(p => p.trim()).filter(l => l !== "");
+async function init() {
+    const res = await fetch("lista.txt");
+    const arquivo = await res.text();
+    listaPalavras = arquivo.split('\n').map(p => p.trim()).filter(l => l !== "");
+}
 
 function sortearProximaPalavra(){
     // Apagar palavra anterior
@@ -110,5 +113,6 @@ export default {
     preencherChar,
     confirmarChar,
     enviarPalavra,
-    resetWordSystem
+    resetWordSystem,
+    init
 }

@@ -1,12 +1,14 @@
-import Drop from './scripts/class/Drop.js'
-import Fly from './scripts/class/Fly.js';
+import 'core-js/stable';
 
-import wordSystem from "./scripts/wordSystem.js";
-import initInputController from './scripts/inputController.js';
-import gameLoop from './scripts/gameLoop.js';
-import lifebar from './scripts/lifebar.js';
-import points from './scripts/points.js';
-import gameOverUi from './scripts/gameOverUi.js'
+import Drop from '../scripts/class/Drop.js'
+import Fly from '../scripts/class/Fly.js';
+
+import wordSystem from "../scripts/wordSystem.js";
+import initInputController from '../scripts/inputController.js';
+import gameLoop from '../scripts/gameLoop.js';
+import lifebar from '../scripts/lifebar.js';
+import points from '../scripts/points.js';
+import gameOverUi from '../scripts/gameOverUi.js'
 
 // Importar .txt
 
@@ -25,9 +27,10 @@ const placarCombo = document.querySelector(".combo")
 const placarPontos = document.querySelector(".pontos")
 
 // Inits
+wordSystem.init()
 initInputController({inputTexto, wordSystem, game, lifebar, points, newClass: {Drop, Fly}});
-points.initPoints(elCombo, elPontos);
-gameOverUi.initGameOver(inputTexto, lifebar, placar, placarCombo, placarPontos)
+points.init(elCombo, elPontos);
+gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos)
 
 // EventListeners
 game.addEventListener("click", () => {

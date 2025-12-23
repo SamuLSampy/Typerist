@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typerist!</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+<%- include('partials/doc', {css: ['root.css','style.css']}) %>
 <body>
-    <nav>
-        <div class="left">
-
-        </div>
-        <div class="center">
-
-        </div>
-        <div class="right">
-            
-        </div>
-    </nav>
+    <%- include('partials/nav') %>
     <div class="game">
         <div class="referencia">
             <div class="caracteres"></div>
@@ -30,7 +13,7 @@
             </div>
             <button class="start">
                 <div class="start1">▶︎</div>
-                <div class="start2">START</div>
+                <div class="start2"><%= t.start%></div>
             </button>
             <input type="text" class="inputTexto" autocomplete="off" autocorrect="off" spellcheck="false">
         </div>
@@ -41,7 +24,7 @@
     </div>
     <div class="game-over hidden overlay">
         <div class="game-over-back">
-            <h1>Acabaram as teclas :(</h1>
+            <h1 class="game-over-title"></h1>
             <div class="placar">
                 <div>Pontos: <span class="pontos">50</span></div>
                 <div>Combo Máximo: <span class="combo">500</span></div>
@@ -49,7 +32,7 @@
             <button class="reiniciar"></button>
         </div>
     </div>
-    <script src="main.js" type="module"></script>
+    <script src="assets/js/main.bundle.js"></script>
 
 </body>
 </html>

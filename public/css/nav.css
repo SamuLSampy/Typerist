@@ -1,0 +1,36 @@
+nav button{
+    all: unset;
+}
+
+nav {
+    width: 100vw;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background-color: var(--secondary-bg-color);
+    color: white;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.auth{
+    position: absolute;
+    background-color: var(--tercenary-bg-color);
+    top:20px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-left, .nav-center, .nav-right{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden{
+    display: none;
+}

@@ -1,0 +1,8 @@
+{
+    "start": "INICIAR",
+    "arcade": "Arcade",
+    "multiplayer": "Multijogador",
+    "rank": "Placar",
+    "login": "Logar",
+    "register": "Registrar"
+}

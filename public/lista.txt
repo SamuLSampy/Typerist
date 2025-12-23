@@ -1,0 +1,1588 @@
+amor
+escada
+tio
+pai
+mãe
+família
+geladeira
+escada
+internet
+caderno
+computador
+teclado
+mouse
+janela
+porta
+cadeira
+mesa
+relógio
+telefone
+mensagem
+amizade
+escola
+trabalho
+cidade
+praia
+montanha
+chuva
+vento
+sol
+nuvem
+estrada
+viagem
+ônibus
+carro
+bicicleta
+avião
+tempo
+história
+memória
+pensamento
+silêncio
+barulho
+energia
+alegria
+tristeza
+esperança
+coragem
+desafio
+velocidade
+concentração
+habilidade
+tecnologia
+programação
+jogador
+pontuação
+desempenho
+vitória
+derrota
+curiosidade
+imaginação
+criatividade
+liberdade
+mistério
+descoberta
+aventura
+universo
+galáxia
+planeta
+estrela
+cometa
+astronauta
+ciência
+experimento
+teoria
+hipótese
+evolução
+natureza
+floresta
+oceano
+tempestade
+relâmpago
+trovão
+horizonte
+amanhecer
+entardecer
+crepúsculo
+reflexão
+inspiração
+equilíbrio
+harmonia
+estratégia
+precisão
+agilidade
+reflexo
+persistência
+resiliência
+disciplina
+foco
+atenção
+aprendizado
+conhecimento
+sabedoria
+experiência
+transformação
+progresso
+inovação
+futuro
+destino
+-//--/-//-
+/--/--//
+abajur
+ agulha
+ almofada
+ anel
+ apito
+ armário
+ balde
+ banco
+ bateria
+ bolsa
+ borracha
+ botão
+ brinco
+ caixa
+ câmera
+ caneta
+ caneca
+ capa
+ casaco
+ chave
+ chinelo
+ cinto
+ colher
+ copo
+ cortina
+ dado
+ dente
+ disco
+ escova
+ espelho
+ faca
+ fio
+ fita
+ garfo
+ garrafa
+ gaveta
+ grampo
+ guarda
+ guitarra
+ harpa
+ ímã
+ isqueiro
+ jarra
+ jornal
+ lâmpada
+ lápis
+ lenço
+ livro
+ lixo
+ luva
+ mala
+ mapa
+ martelo
+ moeda
+ mochila
+ motor
+ muro
+ navio
+ ninho
+ novela
+ óculos
+ olho
+ ouro
+ papel
+ parede
+ pente
+ perfume
+ pilha
+ pincel
+ piso
+ placa
+ pluma
+ prego
+ prato
+ quadro
+ rádio
+ rede
+ roda
+ sabão
+ sacola
+ sapato
+ selo
+ sino
+ sofá
+ tampa
+ tapete
+ teto
+ tijolo
+ toalha
+ torneira
+ vaso
+ vassoura
+ vela
+ vidro
+ violão
+ xadrez
+ xícara
+ zíper
+ abelha
+ águia
+ alce
+ aranha
+ baleia
+ barata
+ besouro
+ borboleta
+ bufalo
+ cabra
+ camelo
+ canguru
+ caracol
+ cavalo
+ cisne
+ coelho
+ coruja
+ corvo
+ crocodilo
+ dinossauro
+ dragão
+ elefante
+ esquilo
+ falcão
+ flamingo
+ foca
+ formiga
+ galinha
+ ganso
+ gato
+ gavião
+ girafa
+ golfinho
+ gorila
+ grilo
+ hiena
+ hipopótamo
+ iguana
+ jacaré
+ jaguar
+ javali
+ lagarto
+ lagosta
+ leão
+ leopardo
+ lhama
+ lobo
+ lula
+ macaco
+ mamute
+ mosca
+ mosquito
+ onça
+ ovelha
+ panda
+ pantera
+ pato
+ pavão
+ peixe
+ peru
+ pinguim
+ polvo
+ pombo
+ porco
+ pulga
+ puma
+ rato
+ raposa
+ rinoceronte
+ sapo
+ serpente
+ tamanduá
+ tartaruga
+ tatu
+ tigre
+ touro
+ tubarão
+ urso
+ vaca
+ veado
+ vespa
+ zebra
+ algoritmo
+ arquivo
+ backup
+ binário
+ bit
+ bug
+ byte
+ cabo
+ cache
+ chip
+ clique
+ código
+ comando
+ console
+ dados
+ debug
+ digital
+ download
+ drive
+ email
+ erro
+ fibra
+ firewall
+ folder
+ fonte
+ gamer
+ gigabyte
+ hacker
+ hardware
+ host
+ ícone
+ imagem
+ input
+ java
+ laser
+ link
+ login
+ macro
+ matriz
+ memória
+ modem
+ monitor
+ network
+ node
+ output
+ painel
+ password
+ pixel
+ print
+ processador
+ python
+ query
+ ram
+ reboot
+ rede
+ robô
+ root
+ roteador
+ script
+ senha
+ sensor
+ servidor
+ site
+ software
+ spam
+ status
+ sistema
+ tela
+ terminal
+ token
+ upload
+ url
+ usb
+ usuário
+ vetor
+ vídeo
+ vírus
+ web
+ wifi
+ advogado
+ arquiteto
+ ator
+ autor
+ bombeiro
+ cantor 
+ chef
+ dentista
+ designer
+ diretor
+ doutor
+ editor
+ engenheiro
+ escritor
+ ferreiro
+ gerente
+ guia
+ juiz
+ médico
+ músico
+ piloto
+ pintor
+ policial
+ professor
+ químico
+ reitor
+ repórter
+ soldado
+ taxista
+ vendedor
+ veterinário
+
+ arquitetura
+ astronomia
+ biodiversidade
+ característica
+ circunstância
+ coincidência
+ complexidade
+ consequência
+ contemporâneo
+ controvérsia
+ democracia
+ desenvolvimento
+ diagnósticos
+ dificuldade
+ eletricidade
+ enciclopédia
+ engenharia
+ espetacular
+ espontâneo
+ estatística
+ extraordinário
+ flexibilidade
+ fundamental
+ globalização
+ gravitacional
+ hierarquia
+ identificação
+ idiossincrasia
+ imprescindível
+ independência
+ infraestrutura
+ inteligência
+ interessante
+ internacional
+ laboratório
+ legislativo
+ literatura
+ matemática
+ metamorfose
+ microbiologia
+ multiplicidade
+ neurociência
+ oportunidade
+ paralelepípedo
+ perspectiva
+ probabilidade
+ produtividade
+ profissional
+ profundidade
+ protagonista
+ psicologia
+ qualificações
+ questionamento
+ raciocínio
+ reciclável
+ reconhecimento
+ refrigerante
+ relacionamento
+ representatividade
+ responsabilidade
+ revolucionário
+ sensibilidade
+ significante
+ simplicidade
+ solidariedade
+ subjetividade
+ sustentabilidade
+ temperatura
+ tranquilidade
+ transparência
+ universidade
+ versatilidade
+ vocabulário
+ vulcanologia
+ xilofone
+ zootecnia
+ :)
+ 
+ casa
+quarto
+cozinha
+banheiro
+sala
+corredor
+varanda
+jardim
+piscina
+garagem
+elevador
+apartamento
+rua
+avenida
+praça
+parque
+rio
+lago
+cachoeira
+ilha
+vulcão
+deserto
+neve
+gelo
+fogo
+fumaça
+cinza
+poeira
+areia
+pedra
+madeira
+metal
+plástico
+tecido
+couro
+algodão
+lã
+seda
+jóia
+colar
+pulseira
+relógio
+bolsa
+carteira
+celular
+tablet
+fone
+cabo
+tomada
+luz
+som
+música
+dança
+teatro
+cinema
+filme
+série
+foto
+pintura
+escultura
+desenho
+cor
+vermelho
+azul
+verde
+amarelo
+roxo
+laranja
+preto
+branco
+cinza
+marrom
+rosa
+turquesa
+violeta
+índigo
+arco-íris
+flor
+árvore
+folha
+raiz
+fruto
+maçã
+banana
+laranja
+uva
+morango
+abacaxi
+melancia
+limão
+café
+chá
+leite
+água
+suco
+vinho
+cerveja
+pão
+queijo
+arroz
+feijão
+carne
+frango
+peixe
+ovo
+salada
+sobremesa
+doce
+chocolate
+sorvete
+bolo
+pizza
+hambúrguer
+batata
+cenoura
+tomate
+alface
+cebola
+alho
+pimenta
+sal
+açúcar
+mel
+manteiga
+óleo
+farinha
+fermento
+panela
+frigideira
+forno
+micro-ondas
+liquidificador
+torradeira
+cafeteira
+prateleira
+armário
+gaveta
+pia
+chuveiro
+banheira
+espelho
+toalha
+sabonte
+shampoo
+escova
+pasta
+creme
+maquiagem
+perfume
+desodorante
+cama
+travesseiro
+lençol
+cobertor
+edredom
+sofá
+poltrona
+estante
+tapete
+cortina
+persiana
+ventilador
+ar-condicionado
+aquecedor
+lareira
+televisão
+controle
+antena
+satellite
+streaming
+podcast
+notícia
+jornal
+revista
+blog
+vlog
+rede-social
+post
+like
+comentário
+amigo
+seguidor
+bloqueio
+perfil
+avatar
+emoji
+hashtag
+trending
+viral
+meme
+troll
+spam
+bot
+inteligência-artificial
+machine-learning
+dados
+big-data
+cloud
+blockchain
+criptomoeda
+bitcoin
+nft
+metaverso
+realidade-virtual
+realidade-aumentada
+drone
+satélite
+foguete
+espaçonave
+missão
+exploração
+colônia
+alienígena
+vida
+morte
+nascimento
+casamento
+aniversário
+festa
+presente
+balão
+confete
+bolo
+vela
+brinde
+saúde
+doença
+remédio
+vacina
+hospital
+clínica
+exame
+cirurgia
+treino
+academia
+corrida
+natação
+futebol
+basquete
+vôlei
+tênis
+golfe
+surfe
+esqui
+patinação
+yoga
+meditação
+respiração
+sono
+sonho
+pesadelo
+realidade
+ficção
+mito
+lenda
+conto
+poema
+romance
+herói
+vilão
+magia
+feitiço
+poção
+espada
+escudo
+armadura
+castelo
+reino
+príncipe
+princesa
+fada
+gnomo
+elfo
+orc
+troll
+gigante
+anão
+tesouro
+mapa
+bússola
+navegação
+direção
+norte
+sul
+leste
+oeste
+centro
+fronteira
+país
+continente
+capital
+idioma
+cultura
+tradição
+costume
+comida
+bebida
+dança
+música
+arte
+história
+geografia
+economia
+política
+governo
+presidente
+direito
+justiça
+paz
+guerra
+revolução
+independência
+liberdade
+igualdade
+direitos
+deveres
+cidadania
+voto
+eleição
+partido
+debate
+opinião
+verdade
+mentira
+segredo
+surpresa
+riso
+choro
+medo
+raiva
+nojo
+felicidade
+amor
+ódio
+ciúme
+inveja
+orgulho
+vergonha
+gratidão
+perdão
+empatia
+compaixão
+generosidade
+egoísmo
+paciência
+impaciência
+calma
+ansiedade
+estresse
+relaxamento
+viagem
+turismo
+hotel
+pousada
+acampamento
+tenda
+fogueira
+história
+lenda
+folclore
+superstição
+sorte
+azar
+amuleto
+talismã
+horóscopo
+signo
+astrologia
+tarô
+previsão
+futuro
+passado
+presente
+eternidade
+infinito
+universo
+multiverso
+dimensão
+portal
+viagem-no-tempo
+paradoxo
+caos
+ordem
+beleza
+feiura
+simetria
+assimetria
+perfeição
+imperfeição
+arte
+design
+moda
+estilo
+tendência
+clássico
+moderno
+antigo
+novo
+velho
+jovem
+adulto
+criança
+bebê
+idoso
+vida
+ciclo
+renascimento
+transformação
+metamorfose
+evolução
+adaptação
+sobrevivência
+extinção
+espécie
+biodiversidade
+ecossistema
+cadeia-alimentar
+predador
+presa
+simbiose
+parasita
+hospedeiro
+poluição
+lixo
+reciclagem
+sustentabilidade
+energia-renovável
+solar
+eólica
+hidrelétrica
+nuclear
+fóssil
+carbono
+clima
+aquecimento-global
+efeito-estufa
+desmatamento
+conservação
+preservação
+ativismo
+protesto
+manifestação
+greve
+reivindicação
+direito
+luta
+resistência
+mudança
+reforma
+progresso
+regresso
+tradição
+inovação
+criação
+destruição
+construção
+demolição
+arquitetura
+urbanismo
+planejamento
+transporte
+trânsito
+mobilidade
+acessibilidade
+inclusão
+diversidade
+tolerância
+respeito
+educação
+alfabetização
+leitura
+escrita
+cálculo
+lógica
+filosofia
+ética
+moral
+bem
+mal
+certo
+errado
+possível
+impossível
+real
+irreal
+sonho
+acordado
+ilusão
+delírio
+sanidade
+loucura
+genialidade
+talento
+dom
+habilidade
+prática
+treinamento
+esforço
+dedicação
+motivação
+inspiração
+meta
+objetivo
+sucesso
+fracasso
+tentativa
+erro
+acierto
+aprendizado
+lição
+conselho
+exemplo
+modelo
+ídolo
+referência
+influência
+impacto
+legado
+herança
+memória
+esquecimento
+perda
+ganho
+lucro
+prejuízo
+investimento
+risco
+segurança
+perigo
+aventura
+rotina
+monotonia
+variedade
+surpresa
+expectativa
+realização
+frustração
+aceitação
+negação
+mudança
+estagnação
+crescimento
+declínio
+ascensão
+queda
+pico
+vale
+jornada
+destino
+caminho
+escolha
+decisão
+livre-arbítrio
+determinismo
+causa
+efeito
+acidente
+intenção
+plano
+improviso
+espontaneidade
+controle
+caos
+equilíbrio
+desequilíbrio
+harmonia
+conflito
+paz
+guerra
+união
+separação
+conexão
+desconexão
+comunicação
+silêncio
+palavra
+gesto
+olhar
+toque
+abraço
+beijo
+carinho
+afeto
+paixão
+romance
+namoro
+compromisso
+família
+amigos
+sociedade
+comunidade
+isolamento
+solidão
+companhia
+presença
+ausência
+chegada
+partida
+adeus
+início
+alfa
+ômega
+eterno
+passageiro
+momentâneo
+duradouro
+frágil
+forte
+resistente
+vulnerável
+protegido
+exposto
+seguro
+arriscado
+calmo
+agitado
+tranquilo
+nervoso
+feliz
+infeliz
+contente
+insatisfeito
+grato
+reclamão
+otimista
+pessimista
+realista
+sonhador
+prático
+teórico
+ativo
+passivo
+líder
+seguidor
+independente
+dependente
+autônomo
+controlado
+livre
+preso
+aberto
+fechado
+transparente
+opaco
+claro
+escuro
+visível
+invisível
+concreto
+abstrato
+material
+imaterial
+físico
+mental
+espiritual
+corpóreo
+etérea
+existência
+não-existência
+ser
+não-ser
+tudo
+nada
+vazio
+cheio
+completo
+incompleto
+perfeito
+defeituoso
+inteiro
+quebrado
+consertado
+estragado
+novo
+usado
+limpo
+sujo
+organizado
+bagunçado
+simples
+complicado
+fácil
+difícil
+rápido
+lento
+grande
+pequeno
+alto
+baixo
+longo
+curto
+largo
+estreito
+grosso
+fino
+pesado
+leve
+duro
+mole
+quente
+frio
+seco
+molhado
+doce
+azedo
+salgado
+amargo
+picante
+suave
+áspero
+liso
+rugoso
+brilhante
+opaco
+colorido
+monocromático
+vibrante
+sutil
+intenso
+fraco
+moderado
+exagerado
+equilibrado
+desproporcional
+proporcional
+simétrico
+assimétrico
+natural
+artificial
+orgânico
+sintético
+autêntico
+falso
+verdadeiro
+mentiroso
+honesto
+desonesto
+confiável
+traidor
+leal
+infiel
+amigável
+hostil
+gentil
+grosso
+educado
+rude
+respeitoso
+desrespeitoso
+humilde
+arrogante
+modesto
+vaidoso
+generoso
+avarento
+corajoso
+covarde
+valente
+medroso
+paciente
+impaciente
+tolerante
+intolerante
+aberto
+fechado
+flexível
+rígido
+adaptável
+inflexível
+criativo
+convencional
+original
+cópia
+único
+comum
+raro
+exclusivo
+popular
+especial
+normal
+estranho
+familiar
+desconhecido
+próximo
+distante
+perto
+longe
+aqui
+ali
+agora
+depois
+antes
+sempre
+nunca
+às vezes
+frequentemente
+raramente
+constantemente
+ocasionalmente
+diariamente
+semanalmente
+mensalmente
+anualmente
+hoje
+amanhã
+ontem
+passado
+futuro
+presente
+eternidade
+momento
+instante
+época
+era
+período
+ciclos
+fases
+estações
+primavera
+verão
+outono
+inverno
+dia
+noite
+manhã
+tarde
+noite
+alvorecer
+meio-dia
+pôr-do-sol
+crepusculo
+lua
+sol
+estrelas
+constelação
+zodíaco
+planetas
+órbita
+gravidade
+atração
+repulsão
+força
+fraqueza
+poder
+impotência
+controle
+submissão
+domínio
+servidão
+igualdade
+desigualdade
+justiça
+injustiça
+equidade
+parcialidade
+neutro
+parcial
+imparcial
+tendencioso
+objetivo
+subjetivo
+fato
+opinião
+evidência
+suposição
+prova
+dúvida
+certeza
+incerteza
+confiança
+desconfiança
+acreditar
+duvidar
+saber
+ignorar
+entender
+confundir
+clareza
+confusão
+ordem
+desordem
+padrão
+aleatório
+lógica
+absurdo
+razão
+emoção
+intelecto
+instinto
+consciência
+inconsciente
+memória
+esquecimento
+recordar
+esquecer
+aprender
+desaprender
+ensinar
+aprender
+conhecer
+descobrir
+explorar
+investigar
+pesquisar
+questionar
+responder
+perguntar
+silenciar
+falar
+ouvir
+ver
+sentir
+tocar
+gustar
+olfatar
+perceber
+ignorar
+notar
+observar
+analisar
+sintetizar
+criar
+destruir
+preservar
+transformar
+manter
+mudar
+estabilizar
+desestabilizar
+construir
+deconstruir
+unir
+dividir
+conectar
+desconectar
+incluir
+excluir
+aceitar
+rejeitar
+abraçar
+repelir
+atrair
+repelir
+amar
+odiar
+admirar
+desprezar
+valorizar
+desvalorizar
+respeitar
+desrespeitar
+honrar
+desonrar
+celebrar
+lamentar
+comemorar
+chorar
+alegrar
+entristecer
+animar
+desanimar
+motivar
+desmotivar
+inspirar
+desinspirar
+encorajar
+desencorajar
+apoiar
+opôr
+ajudar
+prejudicar
+beneficiar
+danificar
+curar
+ferir
+salvar
+condenar
+perdoar
+punir
+recompensar
+castigar
+premiar
+negar
+conceder
+tirar
+receber
+perder
+ganhar
+oferecer
+recusar
+aceitar
+doar
+roubar
+compartilhar
+guardar
+dividir
+multiplicar
+somar
+subtrair
+calcular
+estimar
+medir
+pesar
+contar
+enumerar
+listar
+classificar
+organizar
+categorizar
+identificar
+distinguir
+comparar
+contrastar
+semelhança
+diferença
+igual
+diferente
+mesmo
+outro
+próprio
+alheio
+pessoal
+impessoal
+íntimo
+público
+privado
+aberto
+secreto
+confidencial
+exposto
+oculto
+visível
+invisível
+transparente
+opaco
+claro
+obscuro
+evidente
+misterioso
+simples
+complexo
+direto
+indireto
+literal
+metafórico
+concreto
+abstrato
+real
+imaginário
+factual
+ficcional
+histórico
+atual
+antigo
+moderno
+tradicional
+inovador
+conservador
+progressista
+reacionário
+revolucionário
+pacífico
+violento
+calmo
+agressivo
+gentil
+brutal
+suave
+duro
+flexível
+rígido
+maleável
+inquebrável
+frágil
+resistente
+delicado
+robusto
+forte
+fraco
+poderoso
+impotente
+influente
+insignificante
+importante
+trivial
+essencial
+acessório
+principal
+secundário
+primário
+secundário
+central
+periférico
+focado
+disperso
+concentrado
+distraído
+atento
+desatento
+presente
+ausente
+consciente
+inconsciente
+acordado
+dormindo
+vivo
+morto
+existente
+inexistente
