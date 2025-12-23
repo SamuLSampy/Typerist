@@ -109,375 +109,374 @@ destino
 -//--/-//-
 /--/--//
 abajur
- agulha
- almofada
- anel
- apito
- armário
- balde
- banco
- bateria
- bolsa
- borracha
- botão
- brinco
- caixa
- câmera
- caneta
- caneca
- capa
- casaco
- chave
- chinelo
- cinto
- colher
- copo
- cortina
- dado
- dente
- disco
- escova
- espelho
- faca
- fio
- fita
- garfo
- garrafa
- gaveta
- grampo
- guarda
- guitarra
- harpa
- ímã
- isqueiro
- jarra
- jornal
- lâmpada
- lápis
- lenço
- livro
- lixo
- luva
- mala
- mapa
- martelo
- moeda
- mochila
- motor
- muro
- navio
- ninho
- novela
- óculos
- olho
- ouro
- papel
- parede
- pente
- perfume
- pilha
- pincel
- piso
- placa
- pluma
- prego
- prato
- quadro
- rádio
- rede
- roda
- sabão
- sacola
- sapato
- selo
- sino
- sofá
- tampa
- tapete
- teto
- tijolo
- toalha
- torneira
- vaso
- vassoura
- vela
- vidro
- violão
- xadrez
- xícara
- zíper
- abelha
- águia
- alce
- aranha
- baleia
- barata
- besouro
- borboleta
- bufalo
- cabra
- camelo
- canguru
- caracol
- cavalo
- cisne
- coelho
- coruja
- corvo
- crocodilo
- dinossauro
- dragão
- elefante
- esquilo
- falcão
- flamingo
- foca
- formiga
- galinha
- ganso
- gato
- gavião
- girafa
- golfinho
- gorila
- grilo
- hiena
- hipopótamo
- iguana
- jacaré
- jaguar
- javali
- lagarto
- lagosta
- leão
- leopardo
- lhama
- lobo
- lula
- macaco
- mamute
- mosca
- mosquito
- onça
- ovelha
- panda
- pantera
- pato
- pavão
- peixe
- peru
- pinguim
- polvo
- pombo
- porco
- pulga
- puma
- rato
- raposa
- rinoceronte
- sapo
- serpente
- tamanduá
- tartaruga
- tatu
- tigre
- touro
- tubarão
- urso
- vaca
- veado
- vespa
- zebra
- algoritmo
- arquivo
- backup
- binário
- bit
- bug
- byte
- cabo
- cache
- chip
- clique
- código
- comando
- console
- dados
- debug
- digital
- download
- drive
- email
- erro
- fibra
- firewall
- folder
- fonte
- gamer
- gigabyte
- hacker
- hardware
- host
- ícone
- imagem
- input
- java
- laser
- link
- login
- macro
- matriz
- memória
- modem
- monitor
- network
- node
- output
- painel
- password
- pixel
- print
- processador
- python
- query
- ram
- reboot
- rede
- robô
- root
- roteador
- script
- senha
- sensor
- servidor
- site
- software
- spam
- status
- sistema
- tela
- terminal
- token
- upload
- url
- usb
- usuário
- vetor
- vídeo
- vírus
- web
- wifi
- advogado
- arquiteto
- ator
- autor
- bombeiro
- cantor 
- chef
- dentista
- designer
- diretor
- doutor
- editor
- engenheiro
- escritor
- ferreiro
- gerente
- guia
- juiz
- médico
- músico
- piloto
- pintor
- policial
- professor
- químico
- reitor
- repórter
- soldado
- taxista
- vendedor
- veterinário
-
- arquitetura
- astronomia
- biodiversidade
- característica
- circunstância
- coincidência
- complexidade
- consequência
- contemporâneo
- controvérsia
- democracia
- desenvolvimento
- diagnósticos
- dificuldade
- eletricidade
- enciclopédia
- engenharia
- espetacular
- espontâneo
- estatística
- extraordinário
- flexibilidade
- fundamental
- globalização
- gravitacional
- hierarquia
- identificação
- idiossincrasia
- imprescindível
- independência
- infraestrutura
- inteligência
- interessante
- internacional
- laboratório
- legislativo
- literatura
- matemática
- metamorfose
- microbiologia
- multiplicidade
- neurociência
- oportunidade
- paralelepípedo
- perspectiva
- probabilidade
- produtividade
- profissional
- profundidade
- protagonista
- psicologia
- qualificações
- questionamento
- raciocínio
- reciclável
- reconhecimento
- refrigerante
- relacionamento
- representatividade
- responsabilidade
- revolucionário
- sensibilidade
- significante
- simplicidade
- solidariedade
- subjetividade
- sustentabilidade
- temperatura
- tranquilidade
- transparência
- universidade
- versatilidade
- vocabulário
- vulcanologia
- xilofone
- zootecnia
+agulha
+almofada
+anel
+apito
+armário
+balde
+banco
+bateria
+bolsa
+borracha
+botão
+brinco
+caixa
+câmera
+caneta
+caneca
+capa
+casaco
+chave
+chinelo
+cinto
+colher
+copo
+cortina
+dado
+dente
+disco
+escova
+espelho
+faca
+fio
+fita
+garfo
+garrafa
+gaveta
+grampo
+guarda
+guitarra
+harpa
+ímã
+isqueiro
+jarra
+jornal
+lâmpada
+lápis
+lenço
+livro
+lixo
+luva
+mala
+mapa
+martelo
+moeda
+mochila
+motor
+muro
+navio
+ninho
+novela
+óculos
+olho
+ouro
+papel
+parede
+pente
+perfume
+pilha
+pincel
+piso
+placa
+pluma
+prego
+prato
+quadro
+rádio
+rede
+roda
+sabão
+sacola
+sapato
+selo
+sino
+sofá
+tampa
+tapete
+teto
+tijolo
+toalha
+torneira
+vaso
+vassoura
+vela
+vidro
+violão
+xadrez
+xícara
+zíper
+abelha
+águia
+alce
+aranha
+baleia
+barata
+besouro
+borboleta
+bufalo
+cabra
+camelo
+canguru
+caracol
+cavalo
+cisne
+coelho
+coruja
+corvo
+crocodilo
+dinossauro
+dragão
+elefante
+esquilo
+falcão
+flamingo
+foca
+formiga
+galinha
+ganso
+gato
+gavião
+girafa
+golfinho
+gorila
+grilo
+hiena
+hipopótamo
+iguana
+jacaré
+jaguar
+javali
+lagarto
+lagosta
+leão
+leopardo
+lhama
+lobo
+lula
+macaco
+mamute
+mosca
+mosquito
+onça
+ovelha
+panda
+pantera
+pato
+pavão
+peixe
+peru
+pinguim
+polvo
+pombo
+porco
+pulga
+puma
+rato
+raposa
+rinoceronte
+sapo
+serpente
+tamanduá
+tartaruga
+tatu
+tigre
+touro
+tubarão
+urso
+vaca
+veado
+vespa
+zebra
+algoritmo
+arquivo
+backup
+binário
+bit
+bug
+byte
+cabo
+cache
+chip
+clique
+código
+comando
+console
+dados
+debug
+digital
+download
+drive
+email
+erro
+fibra
+firewall
+folder
+fonte
+gamer
+gigabyte
+hacker
+hardware
+host
+ícone
+imagem
+input
+java
+laser
+link
+login
+macro
+matriz
+memória
+modem
+monitor
+network
+node
+output
+painel
+password
+pixel
+print
+processador
+python
+query
+ram
+reboot
+rede
+robô
+root
+roteador
+script
+senha
+sensor
+servidor
+site
+software
+spam
+status
+sistema
+tela
+terminal
+token
+upload
+url
+usb
+usuário
+vetor
+vídeo
+vírus
+web
+wifi
+advogado
+arquiteto
+ator
+autor
+bombeiro
+cantor 
+chef
+dentista
+designer
+diretor
+doutor
+editor
+engenheiro
+escritor
+ferreiro
+gerente
+guia
+juiz
+médico
+músico
+piloto
+pintor
+policial
+professor
+químico
+reitor
+repórter
+soldado
+taxista
+vendedor
+veterinário
+arquitetura
+astronomia
+biodiversidade
+característica
+circunstância
+coincidência
+complexidade
+consequência
+contemporâneo
+controvérsia
+democracia
+desenvolvimento
+diagnósticos
+dificuldade
+eletricidade
+enciclopédia
+engenharia
+espetacular
+espontâneo
+estatística
+extraordinário
+flexibilidade
+fundamental
+globalização
+gravitacional
+hierarquia
+identificação
+idiossincrasia
+imprescindível
+independência
+infraestrutura
+inteligência
+interessante
+internacional
+laboratório
+legislativo
+literatura
+matemática
+metamorfose
+microbiologia
+multiplicidade
+neurociência
+oportunidade
+paralelepípedo
+perspectiva
+probabilidade
+produtividade
+profissional
+profundidade
+protagonista
+psicologia
+qualificações
+questionamento
+raciocínio
+reciclável
+reconhecimento
+refrigerante
+relacionamento
+representatividade
+responsabilidade
+revolucionário
+sensibilidade
+significante
+simplicidade
+solidariedade
+subjetividade
+sustentabilidade
+temperatura
+tranquilidade
+transparência
+universidade
+versatilidade
+vocabulário
+vulcanologia
+xilofone
+zootecnia
  :)
  
- casa
+casa
 quarto
 cozinha
 banheiro
@@ -1271,7 +1270,6 @@ depois
 antes
 sempre
 nunca
-às vezes
 frequentemente
 raramente
 constantemente
