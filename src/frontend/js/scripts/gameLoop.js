@@ -27,7 +27,7 @@ function atualizarTime({lifebar, points, gameOver, rodapePontos, atualTime}) {
     };
 
         // Atualizar pontos
-    rodapePontos.elPontos.innerHTML = `${points.getPontos()}ppm`
+    rodapePontos.elPontos.innerHTML = `${points.getPontos()}pts`
     rodapePontos.elCombo.innerHTML = `x ${points.getCombo()}`
 
     // Fim código em loop

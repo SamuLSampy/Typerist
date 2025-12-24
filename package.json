@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js --ignore public --ignore frontend",
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --mode production"
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider webpack --mode production --watch"
   },
   "keywords": [],
   "author": "",
