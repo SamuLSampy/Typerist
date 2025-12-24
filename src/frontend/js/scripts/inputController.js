@@ -15,7 +15,7 @@ export default function initInputController({inputTexto, wordSystem, game, lifeb
     });
 
     inputTexto.addEventListener("keydown", (e) => {
-        if (e.code === "Space" || e.code === "Enter") {
+        if (e.key === " " || e.key === "Enter") {
             e.preventDefault();
             wordSystem.enviarPalavra(inputTexto, lifebar, points, newClass.Drop, newClass.Fly);
             wordSystem.sortearProximaPalavra();
