@@ -9,11 +9,15 @@ body {
         font-family: roboto, sans-serif;
 }
 
-
+.title{
+    color: white;
+    font-size: 50px;
+}
 
 .register{
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
     height: 100%;
 }

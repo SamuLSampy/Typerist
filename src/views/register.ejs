@@ -2,26 +2,27 @@
 <body>
     <%- include('partials/nav') %>
     <div class="register">
+        <h1 class="title">Criar Conta</h1>
         <div class="register-container">
-            <form action="post">
+            <form action="/register" method="post">
                 <div>
                     <p>Apelido</p>
-                    <input type="text" placeholder="Apelido">
+                    <input type="text" placeholder="Apelido" name="nickname">
                 </div>
                 <div>
                     <p>E-mail</p>
-                    <input type="email" placeholder="email">
+                    <input type="email" placeholder="email" name="email">
                 </div>
                 <div>
                     <p>Senha</p>
-                    <input type="password" placeholder="passsword">
+                    <input type="password" placeholder="passsword" name="password">
                 </div>
                 <div>
                     <p>Repetir senha</p>
-                    <input type="password" placeholder="repeat password">
+                    <input type="password" placeholder="repeat password" name="repeatPass">
                 </div>
                 <div class="register-button">
-                    <button action="POST">Registrar</button>
+                    <button>Registrar</button>
                 </div>
             </form>
         </div>

@@ -25,7 +25,7 @@ const endGameMsg = [
     "Temus augu en comun...",
     '"Exceção" ou "Excessão"? Viu? Por isso perdeu.',
     "Foi quase... mas quase não conta.",
-    "'CTRL + BACKSPACE' apaga rápido, sabia?",
+    '"CTRL + BACKSPACE" apaga rápido, sabia?',
     "Apertou duas teclas ao mesmo tempo?",
     'Oque é "idiossincrasia"?',
     "Coloca no inglês que não tem acentos.",

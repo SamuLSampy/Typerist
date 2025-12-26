@@ -1,11 +1,19 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const path = require('path')
 
 const session = require('express-session')
 const routers = require('./routes')
+const mongoose = require('mongoose')
 
 app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+
+mongoose.connect(process.env.MONGO_URL, {useUnifiedTopology: true, useNewUrlParser: true})
+  .then(() => console.log('Mongo Conectado'))
+  .catch(err => console.log('Erro ao conectar mongo>'+err))
 
 app.use((req, res, next) => {
   const lang = req.query.lang || 'pt-BR';
