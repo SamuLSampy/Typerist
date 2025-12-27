@@ -1,10 +1,26 @@
-<%- include('partials/doc', {css: ['root.css','style.css']}) %>
+<%- include('partials/doc', {css: ['root.css','login.css']}) %>
 <body>
     <%- include('partials/nav') %>
         <div class="login">
-            <div class="login-container"></div>
+            <div class="login-container">
+                <form action="/login" method="post">
+                    <h1 class="title">Fazer Login</h1>
+                    <div class="input-box login-box">
+                        <input type="text" name="login" class="login-input" required placeholder=" ">
+                        <label for="login">NICKNAME</label>
+                    </div>
+                    <div class="input-box pass-box">
+                        <input type="password" name="password" class="pass-input" required placeholder=" ">
+                        <label for="password">PASSWORD</label>
+                    </div>
+                    <button>Logar</button>
+                </form>
+                <div class="banner">
+
+                </div>
+            </div>
         </div>
-    <script src="assets/js/main.bundle.js"></script>
+    <script src="assets/js/login.bundle.js"></script>
 
 </body>
 </html>

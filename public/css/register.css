@@ -4,9 +4,8 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-        justify-content: center;
     background-color: var(--primary-bg-color);
-        font-family: roboto, sans-serif;
+    font-family: roboto, sans-serif;
 }
 
 .title{
@@ -75,4 +74,12 @@ body {
     height: 30px;
     border-radius: 15px;
     padding-left: 10px;
+}
+
+input::before{
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: rebeccapurple;
+    position: relative;
 }
