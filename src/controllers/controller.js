@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const User = require('../models/user');
+const User = require('../models/User');
 const { render } = require('ejs');
 
 exports.paginaInicial = (req, res) => {
