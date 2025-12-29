@@ -19,14 +19,15 @@ body {
 
 .login-container{
     display: flex;
-    width: 800px;
-    height: 300px;
+    width: 1000px;
+    height: 400px;
 }
 
 .title{
     color: white;
     position: absolute;
     top: -15%;
+    font-size: 50px;
 }
 
 form{
@@ -40,7 +41,8 @@ form{
     flex-direction: column;
     gap: 30px;
     box-sizing: border-box;
-    padding: 35px 20px 20px 20px;
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
     align-items: center;
 }
 
@@ -63,12 +65,29 @@ form button:hover{
     font-size: 20px;
 }
 
-.banner{
+.banner-container{
     width: 50%;
     max-height: 100%;
     display: flex;
     background-color: black;
     filter: var(--drop-shadow)
+}
+
+.banner{
+    color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 60px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.banner-quote{
+    width: 100%;
+    word-break: break-all;
 }
 
 .input-box{
