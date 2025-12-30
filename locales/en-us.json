@@ -1,0 +1,9 @@
+{
+    "start": "START",
+    "arcade": "Arcade",
+    "multiplayer": "Multiplayer",
+    "rank": "Scoreboard",
+    "login": "Sign in",
+    "register": "Sign up",
+    "leave": "Leave"
+}

@@ -31,6 +31,34 @@ exports.login = (req, res) => {
     res.render('login')
 }
 
-exports.postLogin = (req, res) => {
-    res.render('login')
+exports.postLogin = async (req, res) => {
+    const { login, password} = req.body;
+
+    const user = await User.findOne({nickname: login});
+    if(!user){
+        return res.redirect('/login')
+    }
+    const senhaValida = await bcrypt.compare(password, user.password);
+    if(!senhaValida){
+        return res.redirect('/login')
+    }
+
+    req.session.user = {
+        id: user._id,
+        email: user.email,
+        nickname: user.nickname
+    }
+
+    res.redirect('/')
+}
+
+exports.logout = (req, res) => {
+    req.session.destroy(e => {
+        if(e){
+            return res.redirect('/')
+        }
+
+        res.clearCookie('connect.sid');
+        res.redirect('/login')
+    })
 }

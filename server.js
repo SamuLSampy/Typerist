@@ -11,6 +11,16 @@ const mongoose = require('mongoose')
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60 * 24
+  }
+}));
+
 mongoose.connect(process.env.MONGO_URL, {useUnifiedTopology: true, useNewUrlParser: true})
   .then(() => console.log('Mongo Conectado'))
   .catch(err => console.log('Erro ao conectar mongo>'+err))
@@ -28,7 +38,13 @@ app.use((req, res, next) => {
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+});
+
 app.use(routers)
+
 
 app.use(express.static(path.resolve(__dirname, 'public')))
 

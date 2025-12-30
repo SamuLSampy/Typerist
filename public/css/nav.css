@@ -34,3 +34,19 @@ nav {
 .hidden{
     display: none;
 }
+
+.nav-right a{
+    all: unset;
+    cursor: pointer;
+    text-align: center;
+    background-color: green;
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-weight: bold;
+    transition: filter 0.2s ease, scale 0.2s ease;
+}
+
+.nav-right a:hover{
+    filter: brightness(1.1);
+    scale: 1.05;
+}

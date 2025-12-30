@@ -4,5 +4,6 @@
     "multiplayer": "Multijogador",
     "rank": "Placar",
     "login": "Logar",
-    "register": "Registrar"
+    "register": "Registrar",
+    "leave": "Sair"
 }
