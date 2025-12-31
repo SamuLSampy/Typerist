@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const { render } = require('ejs');
+const gameService = require('../services/gameService')
 
 exports.paginaInicial = (req, res) => {
     res.render('game')
@@ -39,6 +40,7 @@ exports.postLogin = async (req, res) => {
         return res.redirect('/login')
     }
     const senhaValida = await bcrypt.compare(password, user.password);
+
     if(!senhaValida){
         return res.redirect('/login')
     }
@@ -61,4 +63,21 @@ exports.logout = (req, res) => {
         res.clearCookie('connect.sid');
         res.redirect('/login')
     })
+}
+
+exports.start = (req, res) => {
+      if (!req.session.user) {
+        return res.status(401).json({ error: 'Login necessário' });
+    }
+
+    console.log(req.body);
+        const result = gameService.startGame(req.session.user);
+        res.json(result);
+}
+
+exports.drawWord = (req, res) => {
+    
+    console.log(req.body);
+        const word = gameService.drawWord(req.session.user)
+        res.json(word)
 }

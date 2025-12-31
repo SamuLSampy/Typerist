@@ -6,7 +6,8 @@ const path = require('path')
 
 const session = require('express-session')
 const routers = require('./routes')
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -15,6 +16,12 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
+
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URL,
+    collectionName: 'sessions'
+  }),
+
   cookie: {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24

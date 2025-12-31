@@ -12,4 +12,8 @@ router.post('/login', controllers.postLogin);
 
 router.get('/logout', controllers.logout)
 
+// Services
+router.post('/api/game/start', controllers.start)
+router.post('/api/game/drawWord', controllers.drawWord)
+
 module.exports = router;
