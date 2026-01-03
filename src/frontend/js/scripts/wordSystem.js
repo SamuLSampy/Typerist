@@ -2,7 +2,11 @@ const caracteres = document.querySelector(".caracteres");
 const playerText = document.querySelector(".playerText");
 let gamesPalavra = [];
 
-async function sortearProximaPalavra(){
+async function init() {
+    sortearProximaPalavra(true)
+}
+
+async function sortearProximaPalavra(init){
     // Apagar palavra anterior
     document.querySelectorAll(".char").forEach(el => {
         el.remove()
@@ -18,10 +22,17 @@ async function sortearProximaPalavra(){
         body: JSON.stringify({})
     })
         .then(resolve => resolve.json())
-    for(let i in palavraSorteada){
+
+    gamesPalavra.push(palavraSorteada);
+    if(!init) criarSlotsInput(getPalavraAtual())
+    console.log(gamesPalavra)
+}
+
+function criarSlotsInput(palavra){
+        for(let i in palavra){
         // Criar palavra sorteada
         const char = document.createElement('div')
-        char.innerHTML = palavraSorteada[i];
+        char.innerHTML = palavra[i];
         char.classList.add(`char`);
         caracteres.appendChild(char);
 
@@ -32,7 +43,6 @@ async function sortearProximaPalavra(){
         PlayerChar.classList.add(`charVazio`);
         playerText.prepend(PlayerChar);
     }
-    gamesPalavra.push(palavraSorteada);
 }
 
 // adiciona "." em caracteres vazios
@@ -63,7 +73,7 @@ function sortear(max){
 
 // Verifica se a palavra está correta ou errada
 function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
-    if(inputTexto.value === getGamesPalavra()[getGamesPalavra().length-1]){
+    if(inputTexto.value === getPalavraAtual()){
         new Fly(10,"+");
         points.adicionarPontos(10);
         lifebar.atualizarVida(false, 10)
@@ -102,11 +112,18 @@ function getGamesPalavra(){
     return gamesPalavra
 }
 
+function getPalavraAtual(){
+    console.log(gamesPalavra[gamesPalavra.length-2])
+    return gamesPalavra[gamesPalavra.length-2]
+}
+
 export default {
+    init,
     sortearProximaPalavra,
     getGamesPalavra,
     preencherChar,
     confirmarChar,
     enviarPalavra,
-    resetWordSystem
+    resetWordSystem,
+    getPalavraAtual
 }

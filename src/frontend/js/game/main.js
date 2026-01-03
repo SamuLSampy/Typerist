@@ -8,7 +8,7 @@ import initInputController from '../scripts/inputController.js';
 import gameLoop from '../scripts/gameLoop.js';
 import lifebar from '../scripts/lifebar.js';
 import points from '../scripts/points.js';
-import gameOverUi from '../scripts/gameOverUi.js'
+import gameOverUi from '../scripts/gameOverUi.js';
 
 // Importar .txt
 
@@ -23,36 +23,37 @@ const placar = document.querySelector(".game-over");
 const elCombo = document.querySelector(".gameRodape .left");
 const elPontos = document.querySelector(".gameRodape .right");
 
-const placarCombo = document.querySelector(".combo")
-const placarPontos = document.querySelector(".pontos")
+const placarCombo = document.querySelector(".combo");
+const placarPontos = document.querySelector(".pontos");
 
 // Inits
 initInputController({inputTexto, wordSystem, game, lifebar, points, newClass: {Drop, Fly}});
 points.init(elCombo, elPontos);
 gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos);
+wordSystem.init();
 
 // EventListeners
 game.addEventListener("click", () => {
-    inputTexto.focus()
+    inputTexto.focus();
 })
 
 startBtn.addEventListener("click", async () => {
-    await criarSessao()
-    console.log("KKKK")
-    iniciarJogo()
+    await criarSessao();
+    console.log("KKKK");
+    iniciarJogo();
 })
 
 button.addEventListener("click", ()=>{
-    reiniciar()
+    reiniciar();
 })
 
 // Iniciar jogo
 function iniciarJogo(){
-    wordSystem.sortearProximaPalavra()
-    lifebar.criarVida(game)
-    gameLoop.setLoop(true)
-    gameLoop.atualizarTime({lifebar, points, gameOver: gameOverUi, rodapePontos: {elCombo, elPontos}, atualTime: performance.now()})
-    startBtn.classList.add("hidden")
+    wordSystem.sortearProximaPalavra();
+    lifebar.criarVida(game);
+    gameLoop.setLoop(true);
+    gameLoop.atualizarTime({lifebar, points, gameOver: gameOverUi, rodapePontos: {elCombo, elPontos}, atualTime: performance.now()});
+    startBtn.classList.add("hidden");
 }
 
 // Reseta todas todos os elementos e partida
@@ -64,8 +65,9 @@ function reiniciar(){
     inputTexto.value = "";
     inputTexto.disabled = false;
     placar.classList.add("hidden");
+    wordSystem.init();
     iniciarJogo();
-    inputTexto.focus()
+    inputTexto.focus();
 }
 
 async function criarSessao(){
@@ -74,7 +76,7 @@ async function criarSessao(){
       .then(data => {
         const url = new URL(window.location);
         url.searchParams.set('g', data.gameId);
-        window.history.pushState({}, '', url)
+        window.history.pushState({}, '', url);
       })
       .catch(err => console.error('Erro:', err));
 }
