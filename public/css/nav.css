@@ -2,6 +2,11 @@ nav button{
     all: unset;
 }
 
+.nav-left a {
+  text-decoration: none;
+  color: white;
+}
+
 nav {
     width: 100vw;
     height: 50px;
