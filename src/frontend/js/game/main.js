@@ -39,7 +39,6 @@ game.addEventListener("click", () => {
 
 startBtn.addEventListener("click", async () => {
     await criarSessao();
-    console.log("KKKK");
     iniciarJogo();
 })
 

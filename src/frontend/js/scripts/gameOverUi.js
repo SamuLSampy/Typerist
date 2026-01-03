@@ -62,7 +62,6 @@ function init(inputText, importVida, placar, placarCombo, placarPontos){
         elPlacar = placar;
         plCombo = placarCombo;
         plPontos = placarPontos;
-        console.log("GameOver iniciado.")
     } catch(e){
         console.error("ERRO: InitGameOver> " + e)
     }
