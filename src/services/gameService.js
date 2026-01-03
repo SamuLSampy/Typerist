@@ -1,6 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
-let listaPalavras = []; 
+let listaPalavras = [];
+let games = [];
 
 async function loadWordList(){
     try{
@@ -14,21 +15,14 @@ async function loadWordList(){
 
 loadWordList()
 
-exports.startGame = ({id, nickname}) => {
-    const firstWord = this.drawWord({id})
-    return {
-        gameId: id,
-        player: nickname,
-        word: firstWord.word,
-        score: 0
-    }
+exports.drawWord = () =>{
+    const wordDrawn = listaPalavras[draw(listaPalavras.length)];
+    return wordDrawn
 }
 
-exports.drawWord = ({ id }) =>{
-    const wordDrawn = listaPalavras[draw(listaPalavras.length)];
-    return{
-        gameId: id,
-        word: wordDrawn
+exports.valide = ({ history, typed}) => {
+    for(let i in history){
+        console.log(i)
     }
 }
 

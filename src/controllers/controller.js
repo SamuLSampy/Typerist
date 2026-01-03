@@ -1,7 +1,8 @@
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const { render } = require('ejs');
-const gameService = require('../services/gameService')
+const gameService = require('../services/gameService');
+const crypto = require('crypto')
 
 exports.paginaInicial = (req, res) => {
     res.render('game')
@@ -39,6 +40,7 @@ exports.postLogin = async (req, res) => {
     if(!user){
         return res.redirect('/login')
     }
+
     const senhaValida = await bcrypt.compare(password, user.password);
 
     if(!senhaValida){
@@ -66,18 +68,38 @@ exports.logout = (req, res) => {
 }
 
 exports.start = (req, res) => {
-      if (!req.session.user) {
-        return res.status(401).json({ error: 'Login necessário' });
+
+    const gameId = crypto.randomUUID();
+    const firstWord = gameService.drawWord();
+
+    req.session.game = {
+        gameId,
+        playerId : req.session.user.id,
+        nickname: req.session.user.nickname,
+        currentWord: firstWord,
+        score: 0,
+        history: [firstWord],
+        typed: [],
+        startedAt: Date.now()
     }
 
-    console.log(req.body);
-        const result = gameService.startGame(req.session.user);
-        res.json(result);
+    console.log(req.session.game)
+    res.json({
+        word: firstWord,
+        gameId
+    });
+}
+
+
+exports.valide = (req, res) => {
+    const word = req.body.word
+    const validate = gameService.wordValide(req.session.game)
+
 }
 
 exports.drawWord = (req, res) => {
     
-    console.log(req.body);
-        const word = gameService.drawWord(req.session.user)
-        res.json(word)
+    const word = gameService.drawWord(req.session.user)
+
+    res.json(word)
 }

@@ -27,17 +27,18 @@ const placarCombo = document.querySelector(".combo")
 const placarPontos = document.querySelector(".pontos")
 
 // Inits
-wordSystem.init()
 initInputController({inputTexto, wordSystem, game, lifebar, points, newClass: {Drop, Fly}});
 points.init(elCombo, elPontos);
-gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos)
+gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos);
 
 // EventListeners
 game.addEventListener("click", () => {
     inputTexto.focus()
 })
 
-startBtn.addEventListener("click", () => {
+startBtn.addEventListener("click", async () => {
+    await criarSessao()
+    console.log("KKKK")
     iniciarJogo()
 })
 
@@ -65,6 +66,17 @@ function reiniciar(){
     placar.classList.add("hidden");
     iniciarJogo();
     inputTexto.focus()
+}
+
+async function criarSessao(){
+    fetch('/api/game/start', {method: 'POST'})
+      .then(r => r.json())
+      .then(data => {
+        const url = new URL(window.location);
+        url.searchParams.set('g', data.gameId);
+        window.history.pushState({}, '', url)
+      })
+      .catch(err => console.error('Erro:', err));
 }
 
 

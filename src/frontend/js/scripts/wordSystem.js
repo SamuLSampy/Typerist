@@ -1,17 +1,8 @@
 const caracteres = document.querySelector(".caracteres");
 const playerText = document.querySelector(".playerText");
 let gamesPalavra = [];
-let listaPalavras
 
-
-// Carregar lista de palavras
-async function init() {
-    const res = await fetch("lista.txt");
-    const arquivo = await res.text();
-    listaPalavras = arquivo.split('\n').map(p => p.trim()).filter(l => l !== "");
-}
-
-function sortearProximaPalavra(){
+async function sortearProximaPalavra(){
     // Apagar palavra anterior
     document.querySelectorAll(".char").forEach(el => {
         el.remove()
@@ -21,8 +12,12 @@ function sortearProximaPalavra(){
     document.querySelectorAll(".playerChar").forEach(el => {
         el.remove()
     })
-
-    const palavraSorteada = listaPalavras[sortear(listaPalavras.length)]
+    const palavraSorteada = await fetch('/api/game/drawWord', {
+        method: 'POST',
+        headers: {'content-type' : 'application/JSON'},
+        body: JSON.stringify({})
+    })
+        .then(resolve => resolve.json())
     for(let i in palavraSorteada){
         // Criar palavra sorteada
         const char = document.createElement('div')
@@ -113,6 +108,5 @@ export default {
     preencherChar,
     confirmarChar,
     enviarPalavra,
-    resetWordSystem,
-    init
+    resetWordSystem
 }

@@ -10,10 +10,11 @@ router.post('/register', controllers.postRegistrar);
 router.get('/login', controllers.login);
 router.post('/login', controllers.postLogin);
 
-router.get('/logout', controllers.logout)
+router.get('/logout', controllers.logout);
 
 // Services
-router.post('/api/game/start', controllers.start)
-router.post('/api/game/drawWord', controllers.drawWord)
+router.post('/api/game/start', controllers.start);
+router.post('/api/game/drawWord', controllers.drawWord);
+router.post('/api/game/valide', controllers.valide);
 
 module.exports = router;
