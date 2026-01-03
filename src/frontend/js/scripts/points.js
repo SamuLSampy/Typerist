@@ -14,10 +14,9 @@ function init(importElCombo, importElPoint){
 
 // Adiciona ou remove pontos
 function adicionarPontos(newPontos) {
-    incrementarCombo();
-
     if (newPontos > 0) {
         pontos += newPontos * combo;
+        incrementarCombo();
     } else if (pontos + newPontos < 0) {
         pontos = 0;
     } else {
@@ -26,7 +25,7 @@ function adicionarPontos(newPontos) {
 }
 
 // Aumenta o valor do combo
-function incrementarCombo(el){
+function incrementarCombo(){
     pulseCombo();
     combo++
     return
@@ -35,7 +34,11 @@ function incrementarCombo(el){
 // Reseta o combo, subtraindo gradualmente
 function zerarCombo(){
     pulseCombo()
-    if (combo > comboMaximo) comboMaximo = combo
+    if(errou){
+        if(combo > comboMaximo){
+            comboMaximo = combo
+        }
+    }
     if(comboVisual <= 0) errou = false
     if(errou) {
         combo--
