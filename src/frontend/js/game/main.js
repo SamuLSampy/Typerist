@@ -71,14 +71,16 @@ function reiniciar(){
 }
 
 async function criarSessao(){
-    fetch('/api/game/start', {method: 'POST'})
+    fetch('/api/game/start', {
+        method: 'POST',
+    })
       .then(r => r.json())
       .then(data => {
         const url = new URL(window.location);
         url.searchParams.set('g', data.gameId);
         window.history.pushState({}, '', url);
       })
-      .catch(err => console.error('Erro:', err));
+      .catch(err => console.error('Erro: Usuário possívelmente não logado \\/\n', err));
 }
 
 

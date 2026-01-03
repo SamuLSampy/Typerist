@@ -83,7 +83,6 @@ exports.start = (req, res) => {
         startedAt: Date.now()
     }
 
-    console.log(req.session.game)
     res.json({
         word: firstWord,
         gameId

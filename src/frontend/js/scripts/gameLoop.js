@@ -1,3 +1,5 @@
+import wordSystem from "./wordSystem";
+
 let loop = true
 let ultimoTime = 0;
 let errou = false
@@ -29,6 +31,9 @@ function atualizarTime({lifebar, points, gameOver, rodapePontos, atualTime}) {
         // Atualizar pontos
     rodapePontos.elPontos.innerHTML = `${points.getPontos()}pts`
     rodapePontos.elCombo.innerHTML = `x ${points.getCombo()}`
+
+        // Repor palavras
+        wordSystem.reporPalavras()
 
     // Fim código em loop
     requestAnimationFrame(time => atualizarTime({lifebar, points, gameOver, rodapePontos, atualTime: time }));

@@ -1,9 +1,37 @@
 const caracteres = document.querySelector(".caracteres");
 const playerText = document.querySelector(".playerText");
 let gamesPalavra = [];
+let palavra = ''
 
-async function init() {
-    sortearProximaPalavra(true)
+function init() {
+    fetchProximaPalavra(true)
+    fetchProximaPalavra(true)
+    fetchProximaPalavra(true)
+}
+
+async function reporPalavras(){
+    if(gamesPalavra.length == 0){
+         await esperarPalavra();
+    }
+    if(gamesPalavra.length < 3){
+        fetchProximaPalavra()
+    }
+}
+
+async function esperarPalavra(){
+    return new Promise(resolve => {
+        const interval = setInterval(() =>{
+            if (gamesPalavra.lenght > 0) {
+                clearInterval(interval);
+                resolve();
+            }
+        },50)
+    })
+}
+
+function consumirPalavra(){
+    palavra = gamesPalavra.shift()
+    criarSlotsInput(palavra)
 }
 
 async function sortearProximaPalavra(init){
@@ -16,16 +44,19 @@ async function sortearProximaPalavra(init){
     document.querySelectorAll(".playerChar").forEach(el => {
         el.remove()
     })
-    const palavraSorteada = await fetch('/api/game/drawWord', {
+
+    if(!init) consumirPalavra()
+}
+
+function fetchProximaPalavra(){
+    fetch('/api/game/drawWord', {
         method: 'POST',
         headers: {'content-type' : 'application/JSON'},
         body: JSON.stringify({})
     })
         .then(resolve => resolve.json())
-
-    gamesPalavra.push(palavraSorteada);
-    if(!init) criarSlotsInput(getPalavraAtual())
-    console.log(gamesPalavra)
+        .then(palavra => gamesPalavra.push(palavra))
+        .catch(console.error)
 }
 
 function criarSlotsInput(palavra){
@@ -67,10 +98,6 @@ function confirmarChar(){
     })
 }
 
-function sortear(max){
-    return Math.floor(Math.random() * max)
-}
-
 // Verifica se a palavra está correta ou errada
 function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
     if(inputTexto.value === getPalavraAtual()){
@@ -79,7 +106,6 @@ function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
         lifebar.atualizarVida(false, 10)
         lifebar.atualizarDano();
 
-        console.log("Dano atual:", Math.abs(lifebar.getDanoVida()));
         return
     } else{
         for (let i = 0; i < inputTexto.value.length; i++) {
@@ -103,8 +129,9 @@ function resetWordSystem(){
     document.querySelectorAll(".playerChar").forEach(el => {
         el.remove()
     })
+    
+    consumirPalavra()
 
-    gamesPalavra = []
 }
 
 // Gets & Sets
@@ -113,8 +140,7 @@ function getGamesPalavra(){
 }
 
 function getPalavraAtual(){
-    console.log(gamesPalavra[gamesPalavra.length-2])
-    return gamesPalavra[gamesPalavra.length-2]
+    return palavra
 }
 
 export default {
@@ -125,5 +151,6 @@ export default {
     confirmarChar,
     enviarPalavra,
     resetWordSystem,
-    getPalavraAtual
+    getPalavraAtual,
+    reporPalavras
 }

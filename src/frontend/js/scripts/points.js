@@ -46,7 +46,6 @@ function zerarCombo(){
 
 // Efeito visual de pulsar no combo
 function pulseCombo(){
-    console.log("Pulse combo chamado");
     elCombo.classList.remove("pulse");
 
     elCombo.classList.add("pulse");
