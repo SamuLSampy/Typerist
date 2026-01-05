@@ -61,7 +61,8 @@ game.addEventListener("click", () => {
 })
 
 // Botão de iniciar jogo
-startBtn.addEventListener("click", async () => {
+startBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
     await criarSessao(gameId);
     await wordSystem.init()
     iniciarJogo();
@@ -101,15 +102,16 @@ async function criarSessao(gameId){
         return
     }
     await fetch('/api/game/erase', {method: 'POST'})
+        .then(console.log('sessão apagada'))
     fetch('/api/game/start', {
         method: 'POST',
-    }).then(console.log('Sessão Apagada'))
-      .then(r => r.json())
-      .then(data => {
-        const url = new URL(window.location);
-        url.searchParams.set('g', data.gameId);
-        window.history.pushState({}, '', url);
-        console.log('sessão criada')
+    })
+        .then(r => r.json())
+        .then(data => {
+            const url = new URL(window.location);
+            url.searchParams.set('g', data.gameId);
+            window.history.pushState({}, '', url);
+            console.log('sessão criada')
       })
       .catch(err => console.error('Erro: Usuário possívelmente não logado \\/\n', err));
 }
