@@ -50,6 +50,7 @@ const endGameMsg = [
     "Sim, acentos são obrigatórios, no ENEM também."
 ]
 
+// pausa
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

@@ -440,7 +440,7 @@ vocabulário
 vulcanologia
 xilofone
 zootecnia
- :)
+:)
  
 casa
 quarto
@@ -608,7 +608,7 @@ lareira
 televisão
 controle
 antena
-satellite
+satélite
 streaming
 podcast
 notícia
@@ -709,7 +709,7 @@ princesa
 fada
 gnomo
 elfo
-orc
+ogro
 troll
 gigante
 anão
@@ -1079,7 +1079,6 @@ corpóreo
 etérea
 existência
 ser
-não-ser
 tudo
 nada
 vazio

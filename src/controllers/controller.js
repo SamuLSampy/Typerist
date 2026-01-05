@@ -1,8 +1,7 @@
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
-const { render } = require('ejs');
 const gameService = require('../services/gameService');
-const crypto = require('crypto')
+const crypto = require('crypto');
 
 exports.paginaInicial = (req, res) => {
     res.render('game')
@@ -71,6 +70,7 @@ exports.start = (req, res) => {
 
     const gameId = crypto.randomUUID();
     const firstWord = gameService.drawWord();
+    console.log(gameId)
 
     req.session.game = {
         gameId,
@@ -82,6 +82,8 @@ exports.start = (req, res) => {
         typed: [],
         startedAt: Date.now()
     }
+
+    console.log()
 
     res.json({
         word: firstWord,
@@ -97,8 +99,58 @@ exports.valide = (req, res) => {
 }
 
 exports.drawWord = (req, res) => {
-    
-    const word = gameService.drawWord(req.session.user)
+    const word = gameService.drawWord()
+    if(!req.session.game){
+        const game = {
+            currentWord: word,
+            history : [word]
+        }
+        req.session.game = game
+        return res.json(game)
+    }
+    const game = req.session.game
+
+    game.currentWord = word
+    game.history.push(word)
+
+    res.json(game)
+}
+
+exports.updateGame = (req, res) => {
+    const word = req.body.typed
 
     res.json(word)
+}
+
+exports.restore = (req, res) => {
+    const {gameId} = req.body;
+    const game = req.session.game
+
+    console.log(gameId)
+    console.log(game.gameId)
+
+    if(!gameId) {
+        return res.status(400).json({
+            error: "gameId é obrigatório no corpo da requisição."
+        });
+    }
+
+    if(!game) {
+        return res.status(404).json({
+            error: "Nenhum jogo ativo na sessão."
+        });
+    }
+    
+if (game.gameId != gameId) {
+        return res.status(403).json({
+            error: "ID do jogo não corresponde ao da sessão."
+        });
+    }
+
+    return res.json(game);
+}
+
+exports.eraseData = (req, res) => {
+    delete req.session.game
+    res.json({sucess: true})
 }

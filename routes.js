@@ -16,5 +16,8 @@ router.get('/logout', controllers.logout);
 router.post('/api/game/start', controllers.start);
 router.post('/api/game/drawWord', controllers.drawWord);
 router.post('/api/game/valide', controllers.valide);
+router.post('/api/game/update', controllers.updateGame);
+router.post('/api/game/restore', controllers.restore);
+router.post('/api/game/erase', controllers.eraseData);
 
 module.exports = router;

@@ -25,6 +25,19 @@ exports.valide = ({ history, typed}) => {
     }
 }
 
+exports.createUser = ({gameId}) => {
+    return {
+        gameId,
+        playerId : req.session.user.id,
+        nickname: req.session.user.nickname,
+        currentWord: firstWord,
+        score: 0,
+        history: [firstWord],
+        typed: [],
+        startedAt: Date.now()
+    }
+}
+
 function draw(max){
     return Math.floor(Math.random() * max);
 }

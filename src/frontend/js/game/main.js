@@ -10,7 +10,31 @@ import lifebar from '../scripts/lifebar.js';
 import points from '../scripts/points.js';
 import gameOverUi from '../scripts/gameOverUi.js';
 
-// Importar .txt
+const params = new URLSearchParams(window.location.search)
+
+const gameId = params.get('g')
+let gameData = {}
+if (gameId) {
+    fetch('/api/game/restore', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ gameId: gameId })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if(data.error) throw new Error(data.error)
+        gameData = data;
+        console.log(gameData)
+        wordSystem.importarDados(gameData)
+        console.log('sessão restaurada')
+        iniciarJogo()
+    })
+    .catch(error => {
+        console.error("Erro ao restaurar jogo:", error);
+        console.error("!SESSÃO SERÁ APAGADA ATÉ QUE SEJA CRIADO UM REDIRECIONAMENTO!")
+        criarSessao();
+    });
+}
 
 const d = new Date();
 const startBtn = document.querySelector(".start");
@@ -30,25 +54,26 @@ const placarPontos = document.querySelector(".pontos");
 initInputController({inputTexto, wordSystem, game, lifebar, points, newClass: {Drop, Fly}});
 points.init(elCombo, elPontos);
 gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos);
-wordSystem.init();
 
 // EventListeners
 game.addEventListener("click", () => {
     inputTexto.focus();
 })
 
+// Botão de iniciar jogo
 startBtn.addEventListener("click", async () => {
-    await criarSessao();
+    await criarSessao(gameId);
+    await wordSystem.init()
     iniciarJogo();
 })
 
+// Botão de reiniciar
 button.addEventListener("click", ()=>{
     reiniciar();
 })
 
 // Iniciar jogo
-function iniciarJogo(){
-    wordSystem.sortearProximaPalavra();
+function iniciarJogo(gameData){
     lifebar.criarVida(game);
     gameLoop.setLoop(true);
     gameLoop.atualizarTime({lifebar, points, gameOver: gameOverUi, rodapePontos: {elCombo, elPontos}, atualTime: performance.now()});
@@ -69,19 +94,22 @@ function reiniciar(){
     inputTexto.focus();
 }
 
-async function criarSessao(){
+// Cria uma nova sessão
+async function criarSessao(gameId){
+    if(gameId){
+        console.log('Sessão Existente')
+        return
+    }
+    await fetch('/api/game/erase', {method: 'POST'})
     fetch('/api/game/start', {
         method: 'POST',
-    })
+    }).then(console.log('Sessão Apagada'))
       .then(r => r.json())
       .then(data => {
         const url = new URL(window.location);
         url.searchParams.set('g', data.gameId);
         window.history.pushState({}, '', url);
+        console.log('sessão criada')
       })
       .catch(err => console.error('Erro: Usuário possívelmente não logado \\/\n', err));
 }
-
-
-
-

@@ -1,36 +1,46 @@
 const caracteres = document.querySelector(".caracteres");
 const playerText = document.querySelector(".playerText");
+let game = {};
 let gamesPalavra = [];
 let palavra = ''
+let fetching
 
-function init() {
-    fetchProximaPalavra(true)
-    fetchProximaPalavra(true)
-    fetchProximaPalavra(true)
+// Carrega buffer de palavras
+async function init(gameData) {
+    if(gamesPalavra.length > 0) return;
+    await fetchProximaPalavra(true)
+    await fetchProximaPalavra(true)
+    await fetchProximaPalavra(true)
+
+    consumirPalavra()
 }
 
+// Importa dados da sessão da partida
+function importarDados(gameData) {
+    game = gameData || {};
+
+    gamesPalavra = game.history || [];
+    palavra = gamesPalavra[0] || '';
+
+    consumirPalavra()
+}
+
+// Garante que o buffer de palavras não esvazie
 async function reporPalavras(){
-    if(gamesPalavra.length == 0){
-         await esperarPalavra();
+    if (gamesPalavra.length === 0) {
+        await fetchProximaPalavra();
+        return;
     }
-    if(gamesPalavra.length < 3){
-        fetchProximaPalavra()
+
+    if (gamesPalavra.length < 3) {
+        fetchProximaPalavra();
     }
 }
 
-async function esperarPalavra(){
-    return new Promise(resolve => {
-        const interval = setInterval(() =>{
-            if (gamesPalavra.lenght > 0) {
-                clearInterval(interval);
-                resolve();
-            }
-        },50)
-    })
-}
-
+// Avança a fila de palavras
 function consumirPalavra(){
     palavra = gamesPalavra.shift()
+
     criarSlotsInput(palavra)
 }
 
@@ -48,16 +58,28 @@ async function sortearProximaPalavra(init){
     if(!init) consumirPalavra()
 }
 
-function fetchProximaPalavra(){
-    fetch('/api/game/drawWord', {
-        method: 'POST',
-        headers: {'content-type' : 'application/JSON'},
-        body: JSON.stringify({})
-    })
-        .then(resolve => resolve.json())
-        .then(palavra => gamesPalavra.push(palavra))
-        .catch(console.error)
+// Busca uma nova palavra no backend
+async function fetchProximaPalavra(){
+    if (fetching) return;
+
+    fetching = true;
+
+    try {
+        const res = await fetch('/api/game/drawWord', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({})
+        });
+
+        const novaPalavra = await res.json();
+        gamesPalavra.push(novaPalavra.currentWord || 'Error');
+    } catch (e) {
+        console.error(e);
+    } finally {
+        fetching = false;
+    }
 }
+
 
 function criarSlotsInput(palavra){
         for(let i in palavra){
@@ -86,7 +108,7 @@ function preencherChar(inputTexto){
     });
 }
 
-// Ajusta cor
+// Ajusta cor dos slots do input
 function confirmarChar(){
     document.querySelectorAll(".playerChar").forEach(el => {
         if(el.textContent === "."){
@@ -100,13 +122,12 @@ function confirmarChar(){
 
 // Verifica se a palavra está correta ou errada
 function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
+    enviarBackend({word: getPalavraAtual(), typed: inputTexto.value})
     if(inputTexto.value === getPalavraAtual()){
         new Fly(10,"+");
         points.adicionarPontos(10);
         lifebar.atualizarVida(false, 10)
         lifebar.atualizarDano();
-
-        return
     } else{
         for (let i = 0; i < inputTexto.value.length; i++) {
             new Drop(inputTexto.value[i], "relative", ".error");
@@ -116,6 +137,20 @@ function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
             points.setComboVisual();
             points.setErrou(true);
         }
+    }
+}
+
+// Envia palavras escritas para o backend validar
+async function enviarBackend(palavra) {
+    try {
+        const res = await fetch('/api/game/update', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ word: palavra.word , typed: palavra.typed})
+        });
+        const data = await res.json();
+    } catch (err) {
+        console.error('Erro ao enviar palavra:', err);
     }
 }
 
@@ -152,5 +187,6 @@ export default {
     enviarPalavra,
     resetWordSystem,
     getPalavraAtual,
-    reporPalavras
+    reporPalavras,
+    importarDados
 }
