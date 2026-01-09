@@ -72,6 +72,7 @@ function init(inputText, importVida, placar, placarCombo, placarPontos){
 function gameOverEnable(points){
     input.disabled = true;
     lifebar.setVidaMorto()
+    apagarDados()
 
     let elTimeout = document.createElement("div");
     elTimeout.classList.add("timeout");
@@ -92,6 +93,15 @@ function gameOverEnable(points){
             }
         })
     },1000)
+}
+
+function  apagarDados() {
+    fetch('api/game/erase', {
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+    }).then(r => r.json)
+        .then(console.log)
+        .catch(console.log)
 }
 
 function sortear(max){

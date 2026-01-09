@@ -24,9 +24,9 @@ if (gameId) {
     .then(data => {
         if(data.error) throw new Error(data.error)
         gameData = data;
-        console.log(gameData)
-        wordSystem.importarDados(gameData)
+        wordSystem.init(gameData)
         console.log('sessão restaurada')
+        startBtn.classList.add("hidden");
         iniciarJogo()
     })
     .catch(error => {
@@ -35,6 +35,8 @@ if (gameId) {
         criarSessao();
     });
 }
+
+console.log(gameData)
 
 const d = new Date();
 const startBtn = document.querySelector(".start");
@@ -63,6 +65,7 @@ game.addEventListener("click", () => {
 // Botão de iniciar jogo
 startBtn.addEventListener("click", async (e) => {
     e.preventDefault();
+    startBtn.classList.add("hidden");
     await criarSessao(gameId);
     await wordSystem.init()
     iniciarJogo();
@@ -78,7 +81,6 @@ function iniciarJogo(gameData){
     lifebar.criarVida(game);
     gameLoop.setLoop(true);
     gameLoop.atualizarTime({lifebar, points, gameOver: gameOverUi, rodapePontos: {elCombo, elPontos}, atualTime: performance.now()});
-    startBtn.classList.add("hidden");
 }
 
 // Reseta todas todos os elementos e partida
@@ -103,11 +105,12 @@ async function criarSessao(gameId){
     }
     await fetch('/api/game/erase', {method: 'POST'})
         .then(console.log('sessão apagada'))
-    fetch('/api/game/start', {
+    await fetch('/api/game/start', {
         method: 'POST',
     })
         .then(r => r.json())
         .then(data => {
+            console.log(data)
             const url = new URL(window.location);
             url.searchParams.set('g', data.gameId);
             window.history.pushState({}, '', url);

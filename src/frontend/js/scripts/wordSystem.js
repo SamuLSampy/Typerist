@@ -2,17 +2,28 @@ const caracteres = document.querySelector(".caracteres");
 const playerText = document.querySelector(".playerText");
 let game = {};
 let gamesPalavra = [];
+let typedWords = []
 let palavra = ''
 let fetching
+let started = false;
 
 // Carrega buffer de palavras
 async function init(gameData) {
+    if(!started){
+        if(gameData){
+        importarDados(gameData)
+        return
+    }
+    console.log("Cheguei aqui")
     if(gamesPalavra.length > 0) return;
     await fetchProximaPalavra(true)
     await fetchProximaPalavra(true)
     await fetchProximaPalavra(true)
-
+    
     consumirPalavra()
+    }
+    started = true;
+    return
 }
 
 // Importa dados da sessão da partida
@@ -20,6 +31,11 @@ function importarDados(gameData) {
     game = gameData || {};
 
     gamesPalavra = game.history || [];
+    typedWords = game.typedHistory
+    console.log("Historico: ", game)
+    game.typedHistory.forEach(()=>{
+        gamesPalavra.shift();
+    })
     palavra = gamesPalavra[0] || '';
 
     consumirPalavra()
@@ -72,7 +88,7 @@ async function fetchProximaPalavra(){
         });
 
         const novaPalavra = await res.json();
-        gamesPalavra.push(novaPalavra.currentWord || 'Error');
+        gamesPalavra.push(novaPalavra.word || 'Error');
     } catch (e) {
         console.error(e);
     } finally {
@@ -84,7 +100,7 @@ async function fetchProximaPalavra(){
 function criarSlotsInput(palavra){
         for(let i in palavra){
         // Criar palavra sorteada
-        const char = document.createElement('div')
+        const char = document.createElement('div');
         char.innerHTML = palavra[i];
         char.classList.add(`char`);
         caracteres.appendChild(char);
@@ -122,6 +138,9 @@ function confirmarChar(){
 
 // Verifica se a palavra está correta ou errada
 function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
+    console.log(gamesPalavra)
+    console.log(typedWords)
+    typedWords.push(inputTexto.value);
     enviarBackend({word: getPalavraAtual(), typed: inputTexto.value})
     if(inputTexto.value === getPalavraAtual()){
         new Fly(10,"+");
@@ -131,8 +150,8 @@ function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
     } else{
         for (let i = 0; i < inputTexto.value.length; i++) {
             new Drop(inputTexto.value[i], "relative", ".error");
-            new Fly(10, "-")
-            lifebar.atualizarVida(false, -5)
+            new Fly(10, "-");
+            lifebar.atualizarVida(false, -5);
             points.adicionarPontos(-10);
             points.setComboVisual();
             points.setErrou(true);
@@ -146,8 +165,9 @@ async function enviarBackend(palavra) {
         const res = await fetch('/api/game/update', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ word: palavra.word , typed: palavra.typed})
+            body: JSON.stringify({ word: palavra.word , typed: palavra.typed, typedHistory: typedWords})
         });
+        console.log(palavra.word, palavra.typed, typedWords)
         const data = await res.json();
     } catch (err) {
         console.error('Erro ao enviar palavra:', err);

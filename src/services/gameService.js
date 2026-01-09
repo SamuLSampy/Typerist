@@ -38,6 +38,32 @@ exports.createUser = ({gameId}) => {
     }
 }
 
+exports.createGame = (session, gameId, firstWord) => {
+    if(!session.user){
+        console.log("Guest")
+        return {
+            guest: true,
+            currentWord: firstWord || '',
+            score: 0,
+            history: [firstWord || ''],
+            typedHistory: [],
+            startedAt: Date.now()
+        }
+    } else{
+        console.log("User")
+        return {
+            gameId,
+            playerId : session.user.id,
+            nickname: session.user.nickname,
+            currentWord: firstWord,
+            score: 0,
+            history: [firstWord || ''],
+            typedHistory: [],
+            startedAt: Date.now()
+        }
+    }
+}
+
 function draw(max){
     return Math.floor(Math.random() * max);
 }

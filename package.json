@@ -27,6 +27,7 @@
     "mongodb": "^7.0.0",
     "mongoose": "^5.12.1",
     "regenerator-runtime": "^0.13.7",
+    "socket.io": "^4.8.3",
     "style-loader": "^2.0.0"
   },
   "devDependencies": {
@@ -47,5 +48,9 @@
   "bugs": {
     "url": "https://github.com/SamuLSampy/Typerist/issues"
   },
-  "homepage": "https://github.com/SamuLSampy/Typerist#readme"
+  "homepage": "https://github.com/SamuLSampy/Typerist#readme",
+  "optionalDependencies": {
+    "bufferutil": "^4.1.0",
+    "utf-8-validate": "^6.0.6"
+  }
 }

@@ -2,15 +2,20 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const path = require('path')
+const path = require('path');
 
-const session = require('express-session')
-const routers = require('./routes')
+const session = require('express-session');
+const routers = require('./routes');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
 
-app.use(express.urlencoded({extended: true}))
-app.use(express.json())
+const { Server } = require('socket.io');
+const http = require('http');
+const server = http.createServer(app);
+const io = new Server(server);
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -41,7 +46,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 
@@ -50,16 +54,15 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(routers)
+app.use(routers);
 
-
-app.use(express.static(path.resolve(__dirname, 'public')))
+app.use(express.static(path.resolve(__dirname, 'public')));
 
 // app.all('*', (req, res) =>{
 //     res.status(404).send('<h1>404! Page not found</h1>');
-// })
+// });
 
-app.listen(3000, () => {
-  console.log('Acessar http://localhost:3000');
-  console.log('Servidor executando na porta 3000');
+server.listen(3000);
+io.on("connection", socket => {
+  console.log("Socket conectado:", socket.id);
 });

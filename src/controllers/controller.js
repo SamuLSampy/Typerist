@@ -4,12 +4,11 @@ const gameService = require('../services/gameService');
 const crypto = require('crypto');
 
 exports.paginaInicial = (req, res) => {
-    res.render('game')
-    return
+    return res.render('game')
 }
 
 exports.registrar = (req, res) => {
-    res.render('register')
+    return res.render('register')
 }
 
 exports.postRegistrar = async (req, res) => {
@@ -21,15 +20,17 @@ exports.postRegistrar = async (req, res) => {
             email,
             password: hash
         })
+        return res.redirect('/login')
     } catch (e){
         console.error(`Erro ao criar user> ${e}`)
         res.redirect('/register')
+        return
     }
-    res.redirect('/login')
+    
 }
 
 exports.login = (req, res) => {
-    res.render('login')
+    return res.render('login')
 }
 
 exports.postLogin = async (req, res) => {
@@ -67,67 +68,87 @@ exports.logout = (req, res) => {
 }
 
 exports.start = (req, res) => {
+    if (req.session.game) {
+        return res.json({
+            word: req.session.game.currentWord,
+            gameId: req.session.game.gameId
+        });
+    }
 
     const gameId = crypto.randomUUID();
     const firstWord = gameService.drawWord();
-    console.log(gameId)
-
     req.session.game = {
         gameId,
-        playerId : req.session.user.id,
+        playerId: req.session.user.id,
         nickname: req.session.user.nickname,
         currentWord: firstWord,
         score: 0,
         history: [firstWord],
-        typed: [],
+        typedHistory: [],
         startedAt: Date.now()
-    }
-
-    console.log()
+    };
 
     res.json({
         word: firstWord,
         gameId
     });
-}
+};
+
 
 
 exports.valide = (req, res) => {
     const word = req.body.word
     const validate = gameService.wordValide(req.session.game)
-
+    res.json({})
 }
 
 exports.drawWord = (req, res) => {
-    const word = gameService.drawWord()
-    if(!req.session.game){
-        const game = {
-            currentWord: word,
-            history : [word]
-        }
-        req.session.game = game
-        return res.json(game)
+    if (!req.session.game) {
+        return res.status(400).json({ error: "Game não iniciado" });
     }
-    const game = req.session.game
 
-    game.currentWord = word
-    game.history.push(word)
+    const word = gameService.drawWord();
 
-    res.json(game)
+    req.session.game.currentWord = word;
+    req.session.game.history.push(word);
+
+    console.log("Histórico atual:", req.session.game.typedHistory);
+
+    res.json({ word });
+};
+
+exports.increaseList = (req, res) => {
+    const userList = req.body.list
+    if (!req.session.game) {
+        return res.status(400).json({
+            error: "Game não iniciado"
+        });
+    }
+    let newWordList = []
+
+    for(let i = 10; i > 0; i--){
+        newWordList.push(gameService.drawWord())
+    }
+    userList.push(newWordList)
+    return res.json({newWordList})
 }
 
 exports.updateGame = (req, res) => {
-    const word = req.body.typed
-
-    res.json(word)
+    const {typed, typedHistory} = req.body;
+    try{
+        req.session.game.typedHistory = typedHistory;
+        console.log("Dei push");
+        console.log("Update", req.session.game.typedHistory[req.session.game.typedHistory.length-1]);
+        } catch(e){
+        console.log("Erro ao atualizar> ", e);
+    }
+    res.json({});
 }
 
 exports.restore = (req, res) => {
     const {gameId} = req.body;
     const game = req.session.game
-
-    console.log(gameId)
-    console.log(game.gameId)
+    console.log(game)
 
     if(!gameId) {
         return res.status(400).json({
@@ -141,7 +162,7 @@ exports.restore = (req, res) => {
         });
     }
     
-if (game.gameId != gameId) {
+if (game.gameId !== gameId) {
         return res.status(403).json({
             error: "ID do jogo não corresponde ao da sessão."
         });
@@ -152,5 +173,5 @@ if (game.gameId != gameId) {
 
 exports.eraseData = (req, res) => {
     delete req.session.game
-    res.json({sucess: true})
+    res.json({success: true})
 }

@@ -2,6 +2,8 @@ const banner = document.querySelector('.banner-quote')
 const inputNick = document.querySelector('.login-input')
 let hello = false
 
+const socket = io()
+
 inputNick.addEventListener('blur', () =>{
     hello = true
 })
