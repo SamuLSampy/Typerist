@@ -24,4 +24,4 @@ Atualizarei o repositório conforme vou aprendendo.
 
 ### Onde acessar
 
-Você pode acessar [clicando aqui](typerist.onrender.com/).
+Você pode acessar [clicando aqui](https://typerist.onrender.com/).
