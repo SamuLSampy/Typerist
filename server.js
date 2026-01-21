@@ -13,6 +13,7 @@ const { Server } = require('socket.io');
 const http = require('http');
 const server = http.createServer(app);
 const io = new Server(server);
+require("./src/sockets")(io);
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -64,5 +65,13 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 
 server.listen(3000);
 io.on("connection", socket => {
-  console.log("Socket conectado:", socket.id);
+  console.log("Socket conectado: ", socket.id);
+
+  socket.on('ping', msg => {
+    console.log("Ping recebido", msg)
+    socket.emit("pong", {
+      message: "Pong"
+    })
+  })
+
 });

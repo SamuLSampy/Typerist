@@ -102,21 +102,6 @@ exports.valide = (req, res) => {
     res.json({})
 }
 
-exports.drawWord = (req, res) => {
-    if (!req.session.game) {
-        return res.status(400).json({ error: "Game não iniciado" });
-    }
-
-    const word = gameService.drawWord();
-
-    req.session.game.currentWord = word;
-    req.session.game.history.push(word);
-
-    console.log("Histórico atual:", req.session.game.typedHistory);
-
-    res.json({ word });
-};
-
 exports.increaseList = (req, res) => {
     const userList = req.body.list
     if (!req.session.game) {
@@ -145,33 +130,15 @@ exports.updateGame = (req, res) => {
     res.json({});
 }
 
-exports.restore = (req, res) => {
-    const {gameId} = req.body;
-    const game = req.session.game
-    console.log(game)
-
-    if(!gameId) {
-        return res.status(400).json({
-            error: "gameId é obrigatório no corpo da requisição."
-        });
-    }
-
-    if(!game) {
-        return res.status(404).json({
-            error: "Nenhum jogo ativo na sessão."
-        });
-    }
-    
-if (game.gameId !== gameId) {
-        return res.status(403).json({
-            error: "ID do jogo não corresponde ao da sessão."
-        });
-    }
-
-    return res.json(game);
-}
-
 exports.eraseData = (req, res) => {
     delete req.session.game
     res.json({success: true})
+}
+
+exports.getUser = (req, res) => {
+    console.log(req.session.user._id)
+    res.json({
+        id: req.session.user._id,
+        user: req.session.user.nickname
+    })
 }

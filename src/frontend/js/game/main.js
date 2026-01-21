@@ -11,30 +11,15 @@ import points from '../scripts/points.js';
 import gameOverUi from '../scripts/gameOverUi.js';
 
 const params = new URLSearchParams(window.location.search)
+const socket = io();
+
+socket.emit("ping", {hello: 'world'});
+socket.on("pong", msg =>{
+    console.log("Resposta servidor: ", msg)
+})
 
 const gameId = params.get('g')
 let gameData = {}
-if (gameId) {
-    fetch('/api/game/restore', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ gameId: gameId })
-    })
-    .then(r => r.json())
-    .then(data => {
-        if(data.error) throw new Error(data.error)
-        gameData = data;
-        wordSystem.init(gameData)
-        console.log('sessão restaurada')
-        startBtn.classList.add("hidden");
-        iniciarJogo()
-    })
-    .catch(error => {
-        console.error("Erro ao restaurar jogo:", error);
-        console.error("!SESSÃO SERÁ APAGADA ATÉ QUE SEJA CRIADO UM REDIRECIONAMENTO!")
-        criarSessao();
-    });
-}
 
 console.log(gameData)
 
@@ -67,7 +52,7 @@ startBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     startBtn.classList.add("hidden");
     await criarSessao(gameId);
-    await wordSystem.init()
+    await wordSystem.init({socket})
     iniciarJogo();
 })
 
@@ -84,7 +69,7 @@ function iniciarJogo(gameData){
 }
 
 // Reseta todas todos os elementos e partida
-function reiniciar(){
+async function reiniciar(){
     lifebar.resetVida();
     points.resetPontuacao();
     wordSystem.resetWordSystem();
@@ -92,29 +77,36 @@ function reiniciar(){
     inputTexto.value = "";
     inputTexto.disabled = false;
     placar.classList.add("hidden");
-    wordSystem.init();
+    await wordSystem.init({socket})
     iniciarJogo();
     inputTexto.focus();
 }
 
 // Cria uma nova sessão
-async function criarSessao(gameId){
-    if(gameId){
-        console.log('Sessão Existente')
-        return
-    }
-    await fetch('/api/game/erase', {method: 'POST'})
-        .then(console.log('sessão apagada'))
-    await fetch('/api/game/start', {
-        method: 'POST',
-    })
-        .then(r => r.json())
-        .then(data => {
-            console.log(data)
+async function criarSessao() {
+    console.log("Criando Sessão")
+    let user;
+    await fetch('/api/user')
+        .then(res => res.json())
+        .then(obj => {
+            user = obj
+        })
+        .catch(console.error);
+        console.log(user)
+
+    socket.emit('game:start', user);
+    socket.on('game:started', data => {
+        try{
+            gameData = data
             const url = new URL(window.location);
             url.searchParams.set('g', data.gameId);
             window.history.pushState({}, '', url);
             console.log('sessão criada')
-      })
-      .catch(err => console.error('Erro: Usuário possívelmente não logado \\/\n', err));
+            console.log(gameData)
+        } catch(e){
+            console.error("Erro ao criar sessão> ", e);
+            gameData = {}
+        }
+
+    })
 }

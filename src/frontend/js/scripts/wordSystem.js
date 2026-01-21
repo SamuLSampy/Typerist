@@ -4,11 +4,30 @@ let game = {};
 let gamesPalavra = [];
 let typedWords = []
 let palavra = ''
-let fetching
+let emiting = false
 let started = false;
 
+let socket = null
+
+// Aguarda até que o buffer tenha palavras suficientes
+async function aguardarBuffer() {
+    while (gamesPalavra.length < 1) {
+        await new Promise(resolve => setTimeout(resolve, 50));
+    }
+}
+
 // Carrega buffer de palavras
-async function init(gameData) {
+async function init(config, gameData) {
+    if(!socket){
+        console.log("Criando Socket")
+        socket = config.socket;
+        socket.on('game:word', data => {
+            console.log(data);
+            gamesPalavra.push(data.word);
+            emiting = false
+        });
+    }
+    
     if(!started){
         if(gameData){
         importarDados(gameData)
@@ -16,13 +35,13 @@ async function init(gameData) {
     }
     console.log("Cheguei aqui")
     if(gamesPalavra.length > 0) return;
-    await fetchProximaPalavra(true)
-    await fetchProximaPalavra(true)
-    await fetchProximaPalavra(true)
-    
-    consumirPalavra()
+    novaPalavra(true)
+    novaPalavra(true)
+    await aguardarBuffer()
     }
+
     started = true;
+    consumirPalavra()
     return
 }
 
@@ -44,12 +63,12 @@ function importarDados(gameData) {
 // Garante que o buffer de palavras não esvazie
 async function reporPalavras(){
     if (gamesPalavra.length === 0) {
-        await fetchProximaPalavra();
+        await novaPalavra();
         return;
     }
 
     if (gamesPalavra.length < 3) {
-        fetchProximaPalavra();
+        novaPalavra();
     }
 }
 
@@ -75,27 +94,11 @@ async function sortearProximaPalavra(init){
 }
 
 // Busca uma nova palavra no backend
-async function fetchProximaPalavra(){
-    if (fetching) return;
-
-    fetching = true;
-
-    try {
-        const res = await fetch('/api/game/drawWord', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({})
-        });
-
-        const novaPalavra = await res.json();
-        gamesPalavra.push(novaPalavra.word || 'Error');
-    } catch (e) {
-        console.error(e);
-    } finally {
-        fetching = false;
-    }
+async function novaPalavra(){
+    if (emiting) return;
+    emiting = true;
+    socket.emit('game:draw');
 }
-
 
 function criarSlotsInput(palavra){
         for(let i in palavra){
@@ -184,9 +187,10 @@ function resetWordSystem(){
     document.querySelectorAll(".playerChar").forEach(el => {
         el.remove()
     })
-    
-    consumirPalavra()
-
+    gamesPalavra = []
+    palavra = ''
+    typedWords = []
+    started = false
 }
 
 // Gets & Sets
@@ -208,5 +212,5 @@ export default {
     resetWordSystem,
     getPalavraAtual,
     reporPalavras,
-    importarDados
+    importarDados,
 }
