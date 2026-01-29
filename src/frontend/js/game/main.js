@@ -9,6 +9,8 @@ import gameLoop from '../scripts/gameLoop.js';
 import lifebar from '../scripts/lifebar.js';
 import points from '../scripts/points.js';
 import gameOverUi from '../scripts/gameOverUi.js';
+import effects from '../scripts/graphics.js'
+import graphics from '../scripts/graphics.js';
 
 const params = new URLSearchParams(window.location.search)
 const socket = io();
@@ -30,6 +32,10 @@ const inputTexto = document.querySelector(".inputTexto");
 const button = document.querySelector(".reiniciar");
 const placar = document.querySelector(".game-over");
 const title = document.querySelector(".title");
+const navLeft = document.querySelector(".nav-left");
+const navCenter = document.querySelector(".nav-center");
+const navRight = document.querySelector(".nav-right");
+
 
 // Escrever Título
 async function titleWrite(text){
@@ -58,6 +64,12 @@ const placarPontos = document.querySelector(".pontos");
 initInputController({inputTexto, wordSystem, game, lifebar, points, newClass: {Drop, Fly}});
 points.init(elCombo, elPontos);
 gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos, {socket});
+effects.init({el: {
+    a: [title],
+    b: [navCenter, navLeft, navRight, startBtn],
+    c: [],
+    d: [],
+}})
 
 // EventListeners
 game.addEventListener("click", () => {

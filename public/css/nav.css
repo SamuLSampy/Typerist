@@ -25,8 +25,10 @@ nav {
     background-color: var(--secondary-bg-color);
     color: white;
     font-size: 20px;
-    z-index: 1;
-    
+    z-index: 5;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 
@@ -155,6 +157,7 @@ nav {
     width: 100vw;
     opacity: 1;
     transition: opacity 0.2s ease-in-out, transform 1s ease;
+    z-index: 999;
 }
 
 .categories-config{
@@ -196,4 +199,11 @@ nav {
     pointer-events: none;
 }
 
+.nav-login{
+    background-color: green;
+}
 
+.nav-register{
+    background-color: rgb(170, 111, 0);
+    margin-right: -10px;
+}
