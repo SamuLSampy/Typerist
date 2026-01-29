@@ -88,6 +88,7 @@ function iniciarJogo(gameData){
 
 // Reseta todas todos os elementos e partida
 async function reiniciar(){
+    await criarSessao();
     lifebar.resetVida();
     points.resetPontuacao();
     wordSystem.resetWordSystem();

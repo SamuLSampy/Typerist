@@ -122,8 +122,19 @@ exports.eraseData = (req, res) => {
 }
 
 exports.getUser = (req, res) => {
+    let id
+    let user
+    if(req.session.user){
+        id = req.session.user.id 
+        user = req.session.user.nickname
+    } else{
+        id = crypto.randomUUID()
+        user = "Guest"
+    }
+    
+    console.log(id, user)
     res.json({
-        id: req.session.user.id,
-        user: req.session.user.nickname
+        id: id,
+        user: user
     })
 }
