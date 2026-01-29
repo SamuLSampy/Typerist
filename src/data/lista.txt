@@ -583,7 +583,7 @@ chuveiro
 banheira
 espelho
 toalha
-sabonte
+sabonete
 shampoo
 escova
 pasta

@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     'main': ['regenerator-runtime/runtime', './src/frontend/js/game/main.js'],
     'register': ['regenerator-runtime/runtime', './src/frontend/js/register/register.js'],
-    'login': ['regenerator-runtime/runtime', './src/frontend/js/login/login.js']
+    'login': ['regenerator-runtime/runtime', './src/frontend/js/login/login.js'],
+    'nav': ['regenerator-runtime/runtime', './src/frontend/js/nav/nav.js']
   },
   output: {
     path: path.resolve(__dirname, 'public', 'assets', 'js'),

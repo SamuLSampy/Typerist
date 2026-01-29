@@ -15,8 +15,8 @@ function init(importElCombo, importElPoint){
 // Adiciona ou remove pontos
 function adicionarPontos(newPontos) {
     if (newPontos > 0) {
-        pontos += newPontos * combo;
         incrementarCombo();
+        pontos += newPontos * combo;
     } else if (pontos + newPontos < 0) {
         pontos = 0;
     } else {

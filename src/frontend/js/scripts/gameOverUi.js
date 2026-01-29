@@ -1,4 +1,4 @@
-let input, lifebar, elPlacar, plCombo, plPontos;
+let input, lifebar, elPlacar, plCombo, plPontos, socket;
 
 const elMsg = document.querySelector(".game-over-title")
 const endGameMsg = [
@@ -56,13 +56,14 @@ function sleep(ms) {
 }
 
 // Funcao inicial para importar elementos
-function init(inputText, importVida, placar, placarCombo, placarPontos){
+function init(inputText, importVida, placar, placarCombo, placarPontos, config){
     try{
         input = inputText;
         lifebar = importVida;
         elPlacar = placar;
         plCombo = placarCombo;
         plPontos = placarPontos;
+        socket = config.socket
     } catch(e){
         console.error("ERRO: InitGameOver> " + e)
     }
@@ -70,6 +71,8 @@ function init(inputText, importVida, placar, placarCombo, placarPontos){
 
 // Inicia tela de gameover e finaliza o jogo
 function gameOverEnable(points){
+    socket.emit("game:end")
+    console.log("Cheguei aqui e enviei")
     input.disabled = true;
     lifebar.setVidaMorto()
     apagarDados()

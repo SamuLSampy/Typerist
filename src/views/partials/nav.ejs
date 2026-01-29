@@ -1,9 +1,9 @@
 <nav>
     <div class="nav-left">
-        <div class="menu">•••</div>
-        <div class="arcade-nav"><a href="/"><%=t.arcade%></a></div>
-        <div class="mult-nav"><%=t.multiplayer%></div>
-        <div class="rank-nav"><%=t.rank%></div>
+        <button class="item menu"><span>•••</span></button>
+        <a class="item arcade" href="/"><span><%=t.arcade%></span></a>
+        <a class="item mult"><span><%=t.multiplayer%></span></a>
+        <a class="item rank"><span><%=t.rank%></span></a>
     </div>
     <div class="nav-center">
         <span class="logo-text">Typerist</span>
@@ -11,12 +11,30 @@
     <div class="nav-right">
         <% if (user) { %>
             <div class="user-info">
-                <span>Olá</span>, <strong><%= user.nickname%></strong>
-                <a href="/logout" class="logout"><%=t.leave%></a>
+                <a class="item user"><span>Olá</span>, <strong><%= user.nickname%></strong></a>
+                <a href="/logout" class="item logout"><%=t.leave%></a>
             </div>
         <% } else { %>
             <a href="/login"><%=t.login%></a>
             <a href="/register"><%=t.register%></a>
         <% } %>
     </div>
+    <div class="menu-config hidden">
+        <div class="categories-config">
+            <span>☺</span>
+        </div>
+        <div class="options-config">
+            <h2>EM CONSTRUÇÃO!</h2>
+            <h2>Interface</h2>
+            <div class="interface-config section">
+                <div><input type="checkbox">Paralax</button></div>
+                <div><input type="checkbox">Vagalumes</button></div>
+                <div><input type="checkbox">Explosões</button></div>
+            </div>
+        </div>
+        <div class="close-config">
+
+        </div>
+    </div>
+    <script src="assets/js/nav.bundle.js"></script>
 </nav>

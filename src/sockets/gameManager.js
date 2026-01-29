@@ -2,23 +2,42 @@ const gameService = require("../services/gameService")
 
 const games = new Map();
 
-function createGame(socketId, user){
+function createGame(user){
+    const gameId = crypto.randomUUID()
     const game = {
-        gameId: crypto.randomUUID(),
+        gameId: gameId,
         playerId: user.id,
-        nickname: user.nickname,
+        nickname: user.user,
         currentWord: '',
         score: 0,
         history: [],
         typedHistory: [],
         startedAt: Date.now()
     }
-    games.set(socketId, game)
+    games.set(gameId, game)
     return game;
 }
 
-function getGame(socket) {
-    return games.get(socket.id);
+function getGame(gameId) {
+    return games.get(gameId);
+}
+
+function endPoints(arr){
+    let combo = 0;
+    let points = 0;
+
+    arr.forEach(value => {
+        if(value){
+            combo++;
+            points += 10*combo
+        } else{
+            combo = 0;
+            points -= 10
+            points < 0 ? points = 0 : null;
+        }
+    });
+    console.log(arr)
+    return points
 }
 
 function gameDelete(id) {
@@ -30,5 +49,6 @@ function gameDelete(id) {
 module.exports = {
     createGame,
     getGame,
-    gameDelete
+    gameDelete,
+    endPoints
 }

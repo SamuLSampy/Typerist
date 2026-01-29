@@ -151,13 +151,13 @@ function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
         lifebar.atualizarVida(false, 10)
         lifebar.atualizarDano();
     } else{
+            points.adicionarPontos(-10);
+            points.setComboVisual();
+            points.setErrou(true);
         for (let i = 0; i < inputTexto.value.length; i++) {
             new Drop(inputTexto.value[i], "relative", ".error");
             new Fly(10, "-");
             lifebar.atualizarVida(false, -5);
-            points.adicionarPontos(-10);
-            points.setComboVisual();
-            points.setErrou(true);
         }
     }
 }
@@ -165,13 +165,7 @@ function enviarPalavra(inputTexto, lifebar, points, Drop, Fly){
 // Envia palavras escritas para o backend validar
 async function enviarBackend(palavra) {
     try {
-        const res = await fetch('/api/game/update', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ word: palavra.word , typed: palavra.typed, typedHistory: typedWords})
-        });
-        console.log(palavra.word, palavra.typed, typedWords)
-        const data = await res.json();
+        socket.emit('game:sendWord', { word: palavra.word , typed: palavra.typed, typedHistory: typedWords})
     } catch (err) {
         console.error('Erro ao enviar palavra:', err);
     }

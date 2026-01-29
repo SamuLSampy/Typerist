@@ -15,7 +15,6 @@ router.get('/logout', controllers.logout);
 // Services
 router.post('/api/game/start', controllers.start);
 router.post('/api/game/valide', controllers.valide);
-router.post('/api/game/update', controllers.updateGame);
 router.post('/api/game/erase', controllers.eraseData);
 
 router.get('/api/user', controllers.getUser);

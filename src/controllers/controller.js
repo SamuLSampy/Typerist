@@ -94,8 +94,6 @@ exports.start = (req, res) => {
     });
 };
 
-
-
 exports.valide = (req, res) => {
     const word = req.body.word
     const validate = gameService.wordValide(req.session.game)
@@ -118,27 +116,14 @@ exports.increaseList = (req, res) => {
     return res.json({newWordList})
 }
 
-exports.updateGame = (req, res) => {
-    const {typed, typedHistory} = req.body;
-    try{
-        req.session.game.typedHistory = typedHistory;
-        console.log("Dei push");
-        console.log("Update", req.session.game.typedHistory[req.session.game.typedHistory.length-1]);
-        } catch(e){
-        console.log("Erro ao atualizar> ", e);
-    }
-    res.json({});
-}
-
 exports.eraseData = (req, res) => {
     delete req.session.game
     res.json({success: true})
 }
 
 exports.getUser = (req, res) => {
-    console.log(req.session.user._id)
     res.json({
-        id: req.session.user._id,
+        id: req.session.user.id,
         user: req.session.user.nickname
     })
 }

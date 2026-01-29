@@ -29,6 +29,23 @@ const game = document.querySelector(".game");
 const inputTexto = document.querySelector(".inputTexto");
 const button = document.querySelector(".reiniciar");
 const placar = document.querySelector(".game-over");
+const title = document.querySelector(".title");
+
+// Escrever Título
+async function titleWrite(text){
+    const splited = text.split('')
+    title.innerHTML = ""
+
+    for(let letter of splited){
+        let span = document.createElement("span")
+        span.innerHTML = letter
+        title.appendChild(span)
+        await sleep(100)
+    }
+    return
+}
+
+titleWrite("Typerist")
 
 // Pontos
 const elCombo = document.querySelector(".gameRodape .left");
@@ -40,7 +57,7 @@ const placarPontos = document.querySelector(".pontos");
 // Inits
 initInputController({inputTexto, wordSystem, game, lifebar, points, newClass: {Drop, Fly}});
 points.init(elCombo, elPontos);
-gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos);
+gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos, {socket});
 
 // EventListeners
 game.addEventListener("click", () => {
@@ -51,6 +68,7 @@ game.addEventListener("click", () => {
 startBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     startBtn.classList.add("hidden");
+    title.classList.add("hidden");
     await criarSessao(gameId);
     await wordSystem.init({socket})
     iniciarJogo();
@@ -109,4 +127,9 @@ async function criarSessao() {
         }
 
     })
+}
+
+// Função de pausa
+async function sleep(ms) {
+   return new Promise(resolve => setTimeout(resolve, ms)) 
 }
