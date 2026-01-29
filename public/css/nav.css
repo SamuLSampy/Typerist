@@ -28,7 +28,7 @@ nav {
     z-index: 5;
     width: 100vw;
     overflow-x: hidden;
-    overflow-y: visible;
+    overflow-y: hidden;
 }
 
 
