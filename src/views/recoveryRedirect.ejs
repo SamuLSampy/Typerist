@@ -1,0 +1,16 @@
+<%- include('partials/doc', {css: ['root.css','recoveryRedirect.css']}) %>
+<%- include('partials/dialog') %>
+<body>
+    <%- include('partials/nav') %>
+    <main>
+        <div class="message-container">
+            <h1 class="title">Recuperar Senha</h1>
+            <div class="instruct-container">
+                <h2 class="message">Se o endereço informado estiver cadastrado, você receberá um e-mail com as instruções de recuperação.</h2>
+                <a href="/login">Login</a>
+            </div>
+        </div>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+</body>
+</html>

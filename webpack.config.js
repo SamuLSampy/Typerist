@@ -7,7 +7,8 @@ module.exports = {
     'register': ['regenerator-runtime/runtime', './src/frontend/js/register/register.js'],
     'login': ['regenerator-runtime/runtime', './src/frontend/js/login/login.js'],
     'nav': ['regenerator-runtime/runtime', './src/frontend/js/nav/nav.js'],
-    'canvas': ['regenerator-runtime/runtime', './src/frontend/js/canvas/canvas.js']
+    'canvas': ['regenerator-runtime/runtime', './src/frontend/js/canvas/canvas.js'],
+    'recovery': ['regenerator-runtime/runtime', './src/frontend/js/login/recovery.js']
   },
   output: {
     path: path.resolve(__dirname, 'public', 'assets', 'js'),

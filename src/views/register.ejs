@@ -1,32 +1,33 @@
 <%- include('partials/doc', {css: ['root.css', 'register.css']}) %>
 <body>
     <%- include('partials/nav') %>
-    <div class="register">
-        <h1 class="title">Criar Conta</h1>
+    <main class="register">
         <div class="register-container">
+            <h1 class="title">Criar Conta</h1>
             <form action="/register" method="post">
-                <div>
-                    <p>Apelido</p>
-                    <input type="text" required placeholder="Apelido" name="nickname">
-                </div>
-                <div>
-                    <p>E-mail</p>
-                    <input type="email" required placeholder="email" name="email">
-                </div>
-                <div>
-                    <p>Senha</p>
-                    <input type="password" required placeholder="passsword" name="password">
-                </div>
-                <div>
-                    <p>Repetir senha</p>
-                    <input type="password" required placeholder="repeat password" name="repeatPass">
-                </div>
-                <div class="register-button">
+                <div class="register-box">
+                    <div class="field">
+                        <input type="text" id="nickname" required placeholder=" " name="nickname">
+                        <label for="nickname">Apelido</label>
+                    </div>
+                    <div class="field">
+                        <input type="email" id="email" required placeholder=" " name="email">
+                        <label for="email">E-mail</label>
+                    </div>
+                    <div class="field">
+                        <input type="password" id="password" required placeholder=" " name="password">
+                        <label for="password">Senha</label>
+                    </div>
+                    <div class="field">
+                        <input type="password" id="repeatPass" required placeholder=" " name="repeatPass">
+                        <label for="repeatPass">Repetir senha</label>
+                    </div>
+                    <span class="error-message off">*As senhas não correspondem*</span>
                     <button>Registrar</button>
                 </div>
             </form>
         </div>
-    </div>
+    </main>
     <script src="assets/js/register.bundle.js"></script>
 
 </body>

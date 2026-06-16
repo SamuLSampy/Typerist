@@ -29,6 +29,8 @@ nav {
     width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
+    position: sticky;
+    top: 0;
 }
 
 
@@ -126,10 +128,6 @@ nav {
     display: none;
 }
 
-.nav-right a{
-
-}
-
 .user-info{
     display: flex;
     flex-direction: row;
@@ -145,14 +143,12 @@ nav {
     margin-right: -10px;
 }
 
-.nav-right a:hover{
-
-}
-
 .menu-config{
     display: grid;
     grid-template-columns: 60px 350px 1fr;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100vw;
     opacity: 1;
@@ -183,10 +179,6 @@ nav {
     padding-left: 15px;
     gap: 10px;
     width: 250px;
-}
-
-.close-config{
-
 }
 
 .config-off{

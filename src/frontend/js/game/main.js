@@ -66,7 +66,7 @@ points.init(elCombo, elPontos);
 gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos, {socket});
 effects.init({el: {
     a: [title],
-    b: [navCenter, navLeft, navRight, startBtn],
+    b: [startBtn],
     c: [],
     d: [],
 }})

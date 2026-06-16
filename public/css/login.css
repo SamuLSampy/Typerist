@@ -62,8 +62,7 @@ form button{
 }
 
 form button:hover{
-    scale: 1.03;
-    font-size: 20px;
+    scale: 1.01;
 }
 
 .banner-container{

@@ -1,6 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 let listaPalavras = [];
+const Match = require('../models/Matches');
 
 async function loadWordList(){
     try{
@@ -62,6 +63,12 @@ exports.createGame = (session, gameId, firstWord) => {
             startedAt: Date.now()
         }
     }
+}
+
+exports.registerMatch = ({game}) => {
+    Match.create({
+        
+    })
 }
 
 function draw(max){

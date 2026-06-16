@@ -1,0 +1,21 @@
+<%- include('partials/doc', {css: ['root.css','recovery.css']}) %>
+<%- include('partials/dialog') %>
+<body>
+    <%- include('partials/nav') %>
+    <main>
+        <div class="recovery-container">
+            <h1 class="recovery-title title">Recuperar Senha</h1>
+            <form action="recovery" method="POST">
+                <div class="input-box recovery-box">
+                    <div class="field">
+                        <input type="text" id="email" class="email-input" name="email" placeholder=" " required>
+                        <label for="email">E-MAIL</label>
+                    </div>
+                    <button>Recuperar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+</body>
+</html>

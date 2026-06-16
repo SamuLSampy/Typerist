@@ -4,3 +4,25 @@
     --tercenary-bg-color: rgb(15, 14, 26);
     --drop-shadow: drop-shadow(black 10px 10px 0px)
 }
+
+.alert-toast {
+    position: fixed;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ef4444; /* Vermelho bonito */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: sans-serif;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    opacity: 0;
+    transition: top 0.4s ease, opacity 0.4s ease;
+}
+
+.alert-toast.show {
+    top: 20px;
+    opacity: 1;
+}

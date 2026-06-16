@@ -1,7 +1,9 @@
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
+
 const User = require('../models/User');
 const gameService = require('../services/gameService');
-const crypto = require('crypto');
+const userService = require('../services/userService');
 
 exports.paginaInicial = (req, res) => {
     return res.render('game')
@@ -34,16 +36,18 @@ exports.login = (req, res) => {
 }
 
 exports.postLogin = async (req, res) => {
-    const { login, password} = req.body;
+    const {login, password} = req.body;
 
     const user = await User.findOne({nickname: login});
     if(!user){
+        req.session.error = 'O usuário inserido não existe.';
         return res.redirect('/login')
     }
 
     const senhaValida = await bcrypt.compare(password, user.password);
 
     if(!senhaValida){
+        req.session.error = 'A senha inserida é inválida.';
         return res.redirect('/login')
     }
 
@@ -65,6 +69,34 @@ exports.logout = (req, res) => {
         res.clearCookie('connect.sid');
         res.redirect('/login')
     })
+}
+
+exports.recovery = (req, res) => {
+    res.render('recovery')
+}
+
+exports.recoveryRedirect = async (req, res) => {
+    const email = req.body.email;
+    if(!email) {
+        return res.status(400).json({ success: false, message: 'E-mail obrigatório.' });
+    }
+
+    const user = await userService.findUser({ email });
+    if(user){
+        const token = await userService.recoveryUser(user);
+        const sendEmail = await userService.sendEmail(user.email, user.nickname, token);
+        if(sendEmail){
+            return res.render('recoveryRedirect');
+        } else {
+            return res.render('recovery', {error: "Houve um erro ao enviar o e-mail, tente novamente mais tarde."});
+        }
+    }
+
+    return res.render('recoveryRedirect');
+}
+
+exports.resetPassword = (req, res) => {
+    res.render('resetPassword')
 }
 
 exports.start = (req, res) => {
@@ -137,4 +169,38 @@ exports.getUser = (req, res) => {
         id: id,
         user: user
     })
+}
+
+exports.checkToken = async (req, res) => {
+    if(typeof(req.body.token) === "string" && req.body.token.trim().length > 0){
+        let token = req.body.token;
+        const user = await userService.findUser({ token })
+        
+        if(user){
+            return res.status(200).json({success: true, user: {email: user.email, nickname: user.nickname}})
+        } else{
+            return res.status(400).json({success: false})
+        }
+    } else{
+        return res.status(400).json({success: false})
+    }
+}
+
+exports.setPassword = async (req, res) => {
+    if(typeof(req.body.token) === "string" && req.body.token.trim().length > 0 && typeof(req.body.password) === "string" && req.body.password.length > 0) {
+        const token = req.body.token;
+        const password = req.body.password;
+        try{
+            const send = await userService.setPassword({password, token})
+            if(send.success){
+                return res.status(200).json({success: true})
+            } else{
+                return res.status(400).json({success: false})
+            }
+        } catch(e){
+            return res.status(500).json({success: false})
+        }
+    } else{
+        return res.status(400).json({success: false})
+    }
 }

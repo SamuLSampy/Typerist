@@ -6,6 +6,7 @@ const path = require('path');
 
 const session = require('express-session');
 const routers = require('./routes');
+const middlewares = require('./src/middlewares/globalMiddleware');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo');
 
@@ -33,6 +34,8 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24
   }
 }));
+
+app.use(middlewares.errorGlobal);
 
 mongoose.connect(process.env.MONGO_URL, {useUnifiedTopology: true, useNewUrlParser: true})
   .then(() => console.log('Mongo Conectado'))
