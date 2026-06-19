@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Orbitron:wght@400..900&family=Playwrite+CU+Guides&family=Playwrite+GB+J+Guides:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
-
 @media (max-width: 768px) {
     .playerChar {
         width: 60px;
@@ -71,35 +68,41 @@ body{
     }
 }
 
-.start {
+.start button {
     all: unset;
     cursor: pointer;
-    color: white;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    font-size: 30px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
     background-color: green;
-    width: 150px;
-    height: 50px;
-    border-radius: 5px;
-    overflow: hidden;
+    border: 8px solid white;
+    outline: 8px solid green;
+    color: white;
+    overflow: visible;
+    transition: transform 0.12s ease, background-color 0.12s ease, outline-color 0.12s ease, filter 0.12s ease;
+    filter: drop-shadow(5px 5px 0px black);
 }
 
-.start1,
-.start2 {
-    transition: transform 0.5s ease, opacity 0.3s ease;
+.start button svg {
+    width: 30px;
+    height: auto;
+    fill: currentColor;
+    transform: translateX(4px);
 }
 
-/* hover */
-.start:hover .start1 {
-    transform: translateX(50px);
+.start button:hover {
+    background-color: #009900;
+    outline-color: #008000;
+    transform: scale(1.08);
 }
 
-.start:hover .start2 {
-    opacity: 0;
-    transform: translateX(10px);
+.start button:active {
+    background-color: #006800;
+    transform: scale(0.94);
 }
 
 .caracteres{

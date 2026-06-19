@@ -2,7 +2,7 @@
 <body>
     <%- include('partials/nav') %>
     <%- include('partials/canvas') %>
-    <div class="game">
+    <main class="game">
         <h1 class="title">Typerist</h1>
         <div class="referencia">
             <div class="caracteres"></div>
@@ -13,13 +13,16 @@
                 <div class="error"></div>
 
             </div>
-            <button class="start">
-                <div class="start1">▶︎</div>
-                <div class="start2"><%= t.start%></div>
-            </button>
+            <div class="start">
+                <button>
+                    <svg viewBox="0 0 10.32 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.13783 3.45878L2.60498 0.192353C1.40816 -0.406058 0 0.464235 0 1.80232V7.9774C0 9.31549 1.40816 10.1858 2.60498 9.58737L9.13783 6.32094C10.3171 5.73131 10.3171 4.04842 9.13783 3.45878Z"/>
+                    </svg>
+                </button>
+            </div>
             <input type="text" class="inputTexto" autocomplete="off" autocorrect="off" spellcheck="false">
         </div>
-    </div>
+    </main>
     <footer class="gameRodape">
         <div class="left"></div>
         <div class="right"></div>

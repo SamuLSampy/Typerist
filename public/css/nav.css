@@ -24,19 +24,21 @@ nav {
     align-items: stretch;
     background-color: var(--secondary-bg-color);
     color: white;
-    font-size: 20px;
+    font-size: 30px;
     z-index: 5;
     width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
     position: sticky;
     top: 0;
+    font-family: "Jersey 10";
+    font-weight: 400;
 }
 
 
 .item {
     transform: skew(-20deg);
-    padding: 0 32px;
+    padding: 0 28px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -74,7 +76,6 @@ nav {
 
 .item span{
     transform: skew(20deg);
-    font-weight: bolder;
 }
 
 .menu{
@@ -136,6 +137,9 @@ nav {
 
 .user{
     background-color: #0070C0;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
 
 .logout{
@@ -145,7 +149,7 @@ nav {
 
 .menu-config{
     display: grid;
-    grid-template-columns: 60px 350px 1fr;
+    grid-template-columns: 80px 350px 1fr;
     position: fixed;
     top: 0;
     left: 0;
@@ -154,6 +158,8 @@ nav {
     opacity: 1;
     transition: opacity 0.2s ease-in-out, transform 1s ease;
     z-index: 999;
+    font-family: "Play";
+    font-size: 20px;
 }
 
 .categories-config{
@@ -162,6 +168,7 @@ nav {
     flex-direction: column;
     align-items: center;
     font-size: 50px;
+    z-index: 1;
 }
 
 .options-config{
@@ -169,16 +176,105 @@ nav {
     flex-direction: column;
     align-items: center;
     padding: 5px;
-    background-color: rgba(25, 25, 25, 0.5);
+    background-color: #0d0b1ace;
+    box-shadow: 5px 5px 0px black;
+    border: 3px solid rgba(255, 255, 255, 0.459);
+    border-left: none;
 }
 
 .section{
+    position: relative;
     display: flex;
     flex-direction: column;
-    border-left: rgb(70, 70, 70) 5px solid;
     padding-left: 15px;
-    gap: 10px;
+    gap: 12px;
     width: 250px;
+}
+
+.section::before{
+    content: '';
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    box-shadow: 5px 0px 0 #000000;
+    background-color: gray;
+    margin-left: -20px;
+}
+
+.config-option{
+    box-sizing: border-box;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 0 12px;
+    color: white;
+    background-color: var(--tercenary-bg-color);
+    border: 3px solid #ffffff;
+    font-weight: 800;
+    line-height: 1;
+    text-shadow: 2px 2px 0 #000000;
+    box-shadow: 5px 5px 0 #000000;
+    transition:
+        transform 0.12s ease,
+        background-color 0.12s ease,
+        box-shadow 0.12s ease;
+}
+
+.config-option:hover{
+    background-color: #26223d;
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 #000000;
+}
+
+.config-option:active{
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #000000;
+}
+
+.config-checkbox{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.config-switch{
+    box-sizing: border-box;
+    position: relative;
+    width: 58px;
+    height: 28px;
+    background-color: #595959;
+    border: 3px solid #ffffff;
+    box-shadow: inset 0 0 0 3px #222222;
+}
+
+.config-switch::after{
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    transition:
+        transform 0.12s ease,
+        background-color 0.12s ease;
+}
+
+.config-checkbox:checked + .config-switch{
+    background-color: #008000;
+    box-shadow: inset 0 0 0 3px #005f00;
+}
+
+.config-checkbox:checked + .config-switch::after{
+    transform: translateX(30px);
+}
+
+.config-checkbox:focus-visible + .config-switch{
+    outline: 3px solid #bf9000;
+    outline-offset: 3px;
 }
 
 .config-off{

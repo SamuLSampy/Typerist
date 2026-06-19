@@ -38,33 +38,47 @@ module.exports = (io, socket) => {
         gameManager.gameDelete(socket.id);
     })
 
-    socket.on("disconnect", () =>{
-        gameManager.gameDelete(socket.id);
-    })
+    socket.on("disconnect", () => {
+        const gameId = socket.data.game?.gameId;
+        if (gameId) gameManager.gameDelete(gameId);
+    });
 
-    socket.on("game:end", () =>{
-        let game = gameManager.getGame(socket.data.game.gameId)
-        if(!game.gameId){
-            socket.emit("game:error", {message: "O jogo não foi encontrado", type: "endgame"});
-            return
+    socket.on("game:end", () => {
+        const gameId = socket.data.game?.gameId;
+
+        if (!gameId) {
+            socket.emit("game:error", {
+                message: "Nenhum jogo ativo nesse socket",
+                type: "endgame"
+            });
+            return;
         }
+
+        const game = gameManager.getGame(gameId);
+
+        if (!game) {
+            delete socket.data.game;
+            socket.emit("game:error", {
+                message: "O jogo não foi encontrado",
+                type: "endgame"
+            });
+            return;
+        }
+
         let result = [];
 
-        let {typedHistory, history} = game;
+        let { typedHistory, history } = game;
         typedHistory.forEach((el, i) => {
-            if(el === history[i]){
-                result.push(true)
-            } else{
-                result.push(false)
-            }
+            result.push(el === history[i]);
         });
+
         const points = gameManager.endPoints(result);
-        gameManager.gameDelete(game.gameId)
-        delete socket.data.game
-        socket.emit("game:ended", {
-            points
-        })
-    })
+
+        gameManager.gameDelete(game.gameId);
+        delete socket.data.game;
+
+        socket.emit("game:ended", { points });
+    });
 
     socket.on("game:update", (data) =>{
         

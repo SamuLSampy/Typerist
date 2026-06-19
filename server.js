@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const port = 3000;
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -8,7 +10,7 @@ const session = require('express-session');
 const routers = require('./routes');
 const middlewares = require('./src/middlewares/globalMiddleware');
 const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo');
+const { MongoStore } = require('connect-mongo');
 
 const { Server } = require('socket.io');
 const http = require('http');
@@ -37,7 +39,7 @@ app.use(session({
 
 app.use(middlewares.errorGlobal);
 
-mongoose.connect(process.env.MONGO_URL, {useUnifiedTopology: true, useNewUrlParser: true})
+mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log('Mongo Conectado'))
   .catch(err => console.log('Erro ao conectar mongo>'+err))
 
@@ -66,15 +68,6 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 //     res.status(404).send('<h1>404! Page not found</h1>');
 // });
 
-server.listen(3000);
-io.on("connection", socket => {
-  console.log("Socket conectado: ", socket.id);
-
-  socket.on('ping', msg => {
-    console.log("Ping recebido", msg)
-    socket.emit("pong", {
-      message: "Pong"
-    })
-  })
-
+server.listen(port, ()=>{
+  console.log(`http://localhost:${port}`)
 });

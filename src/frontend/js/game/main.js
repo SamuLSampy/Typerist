@@ -11,6 +11,7 @@ import points from '../scripts/points.js';
 import gameOverUi from '../scripts/gameOverUi.js';
 import effects from '../scripts/graphics.js'
 import graphics from '../scripts/graphics.js';
+import config from '../scripts/config.js'
 
 const params = new URLSearchParams(window.location.search)
 const socket = io();
@@ -66,8 +67,8 @@ points.init(elCombo, elPontos);
 gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos, {socket});
 effects.init({el: {
     a: [title],
-    b: [startBtn],
-    c: [],
+    b: [],
+    c: [startBtn],
     d: [],
 }})
 

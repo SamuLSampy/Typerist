@@ -1,23 +1,23 @@
-const password = document.querySelector('#password')
-const repeatPassword = document.querySelector('#repeatPass')
-const errorMessage = document.querySelector('.error-message')
+const form = document.querySelector('form');
+const password = document.querySelector('#password');
+const repeatPassword = document.querySelector('#repeatPass');
+const errorMessage = document.querySelector('.error-message');
 
-password.addEventListener('input', (e)=>{
-    if(password.value !== repeatPassword.value){
-        repeatPassword.classList.add('error')
-        errorMessage.classList.remove('off')
-    } else{
-        repeatPassword.classList.remove('error')
-        errorMessage.classList.add('off')
-    }
-})
+function validatePasswords() {
+    const isValid = password.value === repeatPassword.value;
 
-repeatPassword.addEventListener('input', (e)=>{
-    if(password.value !== repeatPassword.value){
-        repeatPassword.classList.add('error')
-        errorMessage.classList.remove('off')
-    } else{
-        repeatPassword.classList.remove('error')
-        errorMessage.classList.add('off')
+    repeatPassword.classList.toggle('error', !isValid);
+    errorMessage.classList.toggle('off', isValid);
+
+    return isValid;
+}
+
+password.addEventListener('input', validatePasswords);
+repeatPassword.addEventListener('input', validatePasswords);
+
+form.addEventListener('submit', (e) => {
+    if (!validatePasswords()) {
+        e.preventDefault();
+        repeatPassword.focus();
     }
-})
+});

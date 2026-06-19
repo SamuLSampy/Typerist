@@ -11,7 +11,7 @@
     <div class="nav-right">
         <% if (user) { %>
             <div class="user-info">
-                <a class="item user"><span>Olá</span>, <strong><%= user.nickname%></strong></a>
+                <a class="item user"><span>Olá,</span><strong><%= user.nickname%></strong></a>
                 <a href="/logout" class="item logout"><%=t.leave%></a>
             </div>
         <% } else { %>
@@ -24,12 +24,24 @@
             <span>☺</span>
         </div>
         <div class="options-config">
-            <h2>EM CONSTRUÇÃO!</h2>
-            <h2>Interface</h2>
+            <h2>CONFIGURAÇÕES</h2>
+            <h2>Gráficos</h2>
             <div class="interface-config section">
-                <div><input type="checkbox">Paralax</button></div>
-                <div><input type="checkbox">Vagalumes</button></div>
-                <div><input type="checkbox">Explosões</button></div>
+                <label class="config-option" for="cfg-parallax">
+                    <span>Parallax</span>
+                    <input type="checkbox" class="config-checkbox" id="cfg-parallax" data-config="parallax">
+                    <span class="config-switch"></span>
+                </label>
+                <label class="config-option" for="cfg-firefly">
+                    <span>Vagalumes</span>
+                    <input type="checkbox" class="config-checkbox" id="cfg-firefly" data-config="firefly">
+                    <span class="config-switch"></span>
+                </label>
+                <label class="config-option" for="cfg-explosion">
+                    <span>Explosões</span>
+                    <input type="checkbox" class="config-checkbox" id="cfg-explosion" data-config="explosion">
+                    <span class="config-switch"></span>
+                </label>
             </div>
         </div>
         <div class="close-config">
