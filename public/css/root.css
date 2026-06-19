@@ -3,7 +3,7 @@
     src: url("../assets/fonts/Jersey_10/Jersey10-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
@@ -47,19 +47,11 @@
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf") format("truetype");
-    font-weight: 100 900;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
     font-family: "Dancing Script";
     src: url("../assets/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf") format("truetype");
     font-weight: 400 700;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 :root{

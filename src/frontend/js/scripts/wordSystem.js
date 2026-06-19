@@ -86,7 +86,7 @@ async function sortearProximaPalavra(init){
     })
 
     // Apagar input anterior
-    document.querySelectorAll(".playerChar").forEach(el => {
+    document.querySelectorAll(".player-char").forEach(el => {
         el.remove()
     })
 
@@ -109,34 +109,29 @@ function criarSlotsInput(palavra){
         caracteres.appendChild(char);
 
         // Criar slots de input
-        const PlayerChar = document.createElement('div')
-        PlayerChar.innerHTML = ".";
-        PlayerChar.classList.add(`playerChar`);
-        PlayerChar.classList.add(`charVazio`);
-        playerText.prepend(PlayerChar);
+        const playerChar = document.createElement('div')
+        playerChar.classList.add(`player-char`);
+        
+        const userLetter = document.createElement('span');
+        userLetter.classList.add('user-letter');
+        userLetter.innerHTML = ".";
+        playerChar.appendChild(userLetter);
+        
+        playerText.prepend(playerChar);
     }
 }
 
 // adiciona "." em caracteres vazios
 function preencherChar(inputTexto){
-    document.querySelectorAll(".playerChar").forEach((char, index) => {
+    document.querySelectorAll(".user-letter").forEach((char, index) => {
         char.innerHTML = inputTexto.value[index]
         if(!inputTexto.value[index]){
             char.innerHTML = "."
+            char.parentElement.classList.remove("filled")
+        } else{
+            char.parentElement.classList.add("filled")
         }
     });
-}
-
-// Ajusta cor dos slots do input
-function confirmarChar(){
-    document.querySelectorAll(".playerChar").forEach(el => {
-        if(el.textContent === "."){
-            el.classList.add("charVazio")
-            return
-        }
-        el.classList.remove("charVazio")
-        return
-    })
 }
 
 // Verifica se a palavra está correta ou errada
@@ -178,7 +173,7 @@ function resetWordSystem(){
     })
 
     // Apagar input anterior
-    document.querySelectorAll(".playerChar").forEach(el => {
+    document.querySelectorAll(".player-char").forEach(el => {
         el.remove()
     })
     gamesPalavra = []
@@ -201,7 +196,6 @@ export default {
     sortearProximaPalavra,
     getGamesPalavra,
     preencherChar,
-    confirmarChar,
     enviarPalavra,
     resetWordSystem,
     getPalavraAtual,

@@ -1,4 +1,9 @@
+let initialized = false;
+
 export default function initInputController({inputTexto, wordSystem, game, lifebar, points, newClass}){
+    if (initialized) return;
+    initialized = true;
+
     inputTexto.addEventListener("input", (e) => {
         // Sensor de tecla certa
         if (wordSystem.getPalavraAtual()[inputTexto.value.length-1] == inputTexto.value[inputTexto.value.length-1] && inputTexto.value !== "" && e.key !== "Backspace"){
@@ -11,7 +16,6 @@ export default function initInputController({inputTexto, wordSystem, game, lifeb
         }
 
         wordSystem.preencherChar(inputTexto);
-        wordSystem.confirmarChar();
     });
 
     inputTexto.addEventListener("keydown", (e) => {

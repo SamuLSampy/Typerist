@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typerist!</title>
+    <link rel="preload" href="assets/fonts/Jersey_10/Jersey10-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" as="font" type="font/ttf" crossorigin>
     <% if (css) {%>
         <% css.forEach(file => { %>
             <link rel="stylesheet" href="css/<%= file %>">

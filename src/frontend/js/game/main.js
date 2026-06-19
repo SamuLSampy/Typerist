@@ -16,11 +16,6 @@ import config from '../scripts/config.js'
 const params = new URLSearchParams(window.location.search)
 const socket = io();
 
-socket.emit("ping", {hello: 'world'});
-socket.on("pong", msg =>{
-    console.log("Resposta servidor: ", msg)
-})
-
 const gameId = params.get('g')
 let gameData = {}
 
@@ -62,9 +57,9 @@ const placarCombo = document.querySelector(".combo");
 const placarPontos = document.querySelector(".pontos");
 
 // Inits
-initInputController({inputTexto, wordSystem, game, lifebar, points, newClass: {Drop, Fly}});
 points.init(elCombo, elPontos);
 gameOverUi.init(inputTexto, lifebar, placar, placarCombo, placarPontos, {socket});
+initInputController({inputTexto, wordSystem, game, lifebar, points, newClass: {Drop, Fly}});
 effects.init({el: {
     a: [title],
     b: [],
@@ -97,6 +92,8 @@ function iniciarJogo(gameData){
     lifebar.criarVida(game);
     gameLoop.setLoop(true);
     gameLoop.atualizarTime({lifebar, points, gameOver: gameOverUi, rodapePontos: {elCombo, elPontos}, atualTime: performance.now()});
+    inputTexto.value = "";
+    inputTexto.focus();
 }
 
 // Reseta todas todos os elementos e partida
